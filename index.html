@@ -55,7 +55,7 @@ body {
     height: 8vh;
     background-color: #ffffff;
     flex-shrink: 0;
-    padding-left: 2vw;
+    padding-left: 1vw;
     position: relative;
     z-index: 10;
     order: 0; /* First in vstack */
@@ -67,20 +67,6 @@ body {
     width: 4.5vw;
 }
 
-.home-btn, .news-btn, .business-btn, .contact-btn {
-    font-size: 1.2vw;
-    background: transparent;
-    font-weight: bold;
-    border: none;
-    cursor: pointer;
-    margin-left: 3vw;
-}
-
-.home-btn {
-    color: rgb(43,156,246);
-    border-bottom: 2px solid rgb(43,156,246);
-    margin-left: 69vw;
-}
 
 /* Hero Section */
 .hero {
@@ -488,7 +474,7 @@ body {
     display: flex;
     flex-direction: row;
     width: 100vw;
-    height: 54vh;
+    height: 55vh;
     background-color: #ffffff00;
     position: relative;
     overflow-x: hidden;
@@ -574,6 +560,55 @@ body {
   line-height: 1.4;
 }
 
+.news-home-section {
+  display: flex;
+  flex-direction: column;
+  width: 100vw;
+  height: auto;
+  background-color: #ffffff00;
+  position: relative;
+  overflow-x: hidden;
+  margin-bottom: 5vh;
+}
+
+.news-home-row {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  width: 100vw;
+  height: auto;
+  background-color: #ffffff00;
+
+}
+
+.news-home-news-label {
+  color: rgb(0, 0, 0);
+  background-color: #ffffff00;
+  align-self: flex-start;
+  margin-left: 2vw;
+  font-size: 2vw;
+  font-weight: bold;
+}
+
+.news-home-news-more {
+  margin-left: auto;
+  margin-right: 3vw;
+  font-size: 1vw;
+  font-weight: bold;
+  background-color: rgb(43, 156, 246);
+  border-radius: 10vw;
+  padding: 1vw 1vw;
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 1.2vw;
+  transition: background-color 0.3s ease;
+  cursor: pointer;
+  border: none; /* Remove default button border */
+  outline: none; /* Remove focus outline */
+}
+
+
 }
 
 /* Tablet styles */
@@ -643,20 +678,7 @@ body {
     width: 6vw;
 }
 
-.home-btn, .news-btn, .business-btn, .contact-btn {
-    font-size: 1.7vw;
-    background: transparent;
-    font-weight: bold;
-    border: none;
-    cursor: pointer;
-    margin-left: 3vw;
-}
 
-.home-btn {
-    color: rgb(43,156,246);
-    border-bottom: 2px solid rgb(43,156,246);
-    margin-left: 62vw;
-}
 
 /* Hero Section */
 .hero {
@@ -672,12 +694,13 @@ body {
 
 .rocketbgimg {
     grid-area: 1 / 1;
-    width: 100%;
+    width: 200%;
     height: auto; /* Let image determine height */
     object-fit: cover;
     display: block;
     position: relative; /* Keep in normal flow */
     overflow: hidden;
+    margin-left: -50%;
 }
 
 .rocketbgimg-mobile {
@@ -702,13 +725,13 @@ body {
 
 .mirakle-text {
     color: rgb(43,156,246);
-    font-size: 7vw;
+    font-size: 12vw;
     font-weight: bold;
 }
 
 .discover-text {
     color: white;
-    font-size: 2vw;
+    font-size: 5vw;
     font-weight: bold;
     font-family: cursive;
 }
@@ -1141,6 +1164,55 @@ body {
   line-height: 1.4;
 }
 
+.news-home-section {
+  display: flex;
+  flex-direction: column;
+  width: 100vw;
+  height: auto;
+  background-color: #ffffff00;
+  position: relative;
+  overflow-x: hidden;
+  margin-bottom: 5vh;
+  margin-top: 2vh;
+}
+
+.news-home-row {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  width: 100vw;
+  height: auto;
+  background-color: #ffffff00;
+
+}
+
+.news-home-news-label {
+  color: rgb(0, 0, 0);
+  background-color: #ffffff00;
+  align-self: flex-start;
+  margin-left: 2vw;
+  font-size: 3vw;
+  font-weight: bold;
+}
+
+.news-home-news-more {
+  margin-left: auto;
+  margin-right: 3vw;
+  font-size: 1vw;
+  font-weight: bold;
+  background-color: rgb(43, 156, 246);
+  border-radius: 10vw;
+  padding: 1vw 1vw;
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 1.8vw;
+  transition: background-color 0.3s ease;
+  cursor: pointer;
+  border: none; /* Remove default button border */
+  outline: none; /* Remove focus outline */
+}
+
 }
 
 @media  (max-width: 767px) {
@@ -1209,20 +1281,7 @@ body {
     width: 6vw;
 }
 
-.home-btn, .news-btn, .business-btn, .contact-btn {
-    font-size: 2.5vw;
-    background: transparent;
-    font-weight: bold;
-    border: none;
-    cursor: pointer;
-    margin-left: 3vw;
-}
 
-.home-btn {
-    color: rgb(43,156,246);
-    border-bottom: 2px solid rgb(43,156,246);
-    margin-left: 50vw;
-}
 
 .business-btn {
     margin-right: 2vw;
@@ -1242,23 +1301,15 @@ body {
 
 .rocketbgimg {
     grid-area: 1 / 1;
-    width: 100%;
+    width: 250%;
     height: auto; /* Let image determine height */
     object-fit: cover;
     display: block;
     position: relative; /* Keep in normal flow */
     overflow: hidden;
+    margin-left: -100%;
 }
 
-.rocketbgimg-mobile {
-    grid-area: 1 / 1;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    display: block;
-    position: relative; /* Keep in normal flow */
-    overflow: hidden;
-}
 
 .hero-vstack {
     grid-area: 1 / 1;
@@ -1272,13 +1323,13 @@ body {
 
 .mirakle-text {
     color: rgb(43,156,246);
-    font-size: 7vw;
+    font-size: 13vw;
     font-weight: bold;
 }
 
 .discover-text {
     color: white;
-    font-size: 2vw;
+    font-size: 5vw;
     font-weight: bold;
     font-family: cursive;
 } 
@@ -1714,6 +1765,60 @@ body {
   line-height: 1.4;
 }
 
+
+
+.news-home-section {
+  display: flex;
+  flex-direction: column;
+  width: 100vw;
+  height: auto;
+  background-color: #ffffff00;
+  position: relative;
+  overflow-x: hidden;
+  margin-bottom: 5vh;
+  margin-top: 2vh;
+}
+
+.news-home-row {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  width: 100vw;
+  height: auto;
+  background-color: #ffffff00;
+
+}
+
+.news-home-news-label {
+  color: rgb(0, 0, 0);
+  background-color: #ffffff00;
+  align-self: flex-start;
+  margin-left: 2vw;
+  font-size: 4vw;
+  font-weight: bold;
+}
+
+.news-home-news-more {
+  margin-left: auto;
+  margin-right: 3vw;
+  font-size: 1vw;
+  font-weight: bold;
+  background-color: rgb(43, 156, 246);
+  border-radius: 10vw;
+  padding: 1vw 1vw;
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 2.4vw;
+  transition: background-color 0.3s ease;
+  cursor: pointer;
+  border: none; /* Remove default button border */
+  outline: none; /* Remove focus outline */
+}
+
+
+
+
 }
 
 
@@ -1730,9 +1835,6 @@ body {
     <!-- Menu Bar -->
     <div class="menu-bar">
         <img class="mirakleimg" src="mirakle.png" alt="Mirakle">
-        <button class="home-btn" onclick="home()">Home</button>
-        <button class="news-btn" onclick="news()">News</button>
-        <button class="business-btn" onclick="business()">Business</button>
     </div>
 
     <!-- Hero Section -->
@@ -1741,7 +1843,6 @@ body {
         <div class="hero-vstack">
             <label class="mirakle-text">M I R A K L E</label>
             <label class="discover-text">Your next mirakle starts here</label>
-            <button class="learnmore-btn">Learn More</button>
             
         </div>
     </div>
@@ -1772,7 +1873,22 @@ body {
     </div>
   </div>
 </div>
-
+<div class="news-home-section">
+<div class="news-home-row">
+  <div class="news-home-news-label">News from us</div>
+  <button class="news-home-news-more" onclick="news()">Read More ➔</button>
+</div>
+<div class="news-post-row">
+  <div class="news-post">
+    <img class="news-post-image" src="intropost.png" alt="News post image">
+    <div class="news-post-text">
+      <label class="news-post-text-title">Website Launch & Introduction</label>
+      <label class="news-post-text-date">February 20, 2026</label>
+      <label class="news-post-text-content">Today marks a significant milestone in our journey. After months of hard work and dedication, we are proud to announce the launch of our website. This is a testament to the power of collaboration and the passion that drives us forward. We hope you enjoy exploring our new platform and discovering the endless possibilities it offers. Thank you for your support and for being part of this journey with us.</label>
+    </div>
+  </div>
+  </div>
+</div>
 <!-- Info Section -->
 <div class="info-section">
   <div class="info-divider"></div>
@@ -1795,14 +1911,14 @@ body {
   </div>
 </div>
 
+
+
 </div>
 
 <div class="newspage">
   <div class="menu-bar">
     <img class="mirakleimg" src="mirakle.png" alt="Mirakle">
-    <button class="home-btn" onclick="home()">Home</button>
-    <button class="news-btn" onclick="news()">News</button>
-    <button class="business-btn" onclick="business()">Business</button>
+    <button class="news-home-news-more" onclick="home()">Go Back ➔</button>
   </div>
   <div class="news-latest-label">Latest News</div>
   <div class="news-post-row">
@@ -1847,9 +1963,6 @@ body {
 <div class="businesspage">
   <div class="menu-bar">
     <img class="mirakleimg" src="mirakle.png" alt="Mirakle">
-    <button class="home-btn" onclick="home()">Home</button>
-    <button class="news-btn" onclick="news()">News</button>
-    <button class="business-btn" onclick="business()">Business</button>
   </div>
 </div>
 
@@ -1932,29 +2045,12 @@ function news() {
   document.querySelector('.homepage').style.display = 'none';
   document.querySelector('.info-section').style.display = 'none';
   document.querySelector('.businesspage').style.display = 'none';
+  document.querySelector('.news-home-section').style.display = 'none';
   
   // Show newspage
   document.querySelector('.newspage').style.display = 'flex';
   
-  // Update button styles - reset all buttons first
-  const homeButtons = document.querySelectorAll('.home-btn');
-  const newsButtons = document.querySelectorAll('.news-btn');
-  const businessButtons = document.querySelectorAll('.business-btn');
-  
-  homeButtons.forEach(btn => {
-    btn.style.color = 'rgb(0, 0, 0)';
-    btn.style.borderBottom = 'none';
-  });
-  
-  newsButtons.forEach(btn => {
-    btn.style.color = 'rgb(43, 156, 246)';
-    btn.style.borderBottom = '2px solid rgb(43, 156, 246)';
-  });
-  
-  businessButtons.forEach(btn => {
-    btn.style.color = 'rgb(0, 0, 0)';
-    btn.style.borderBottom = 'none';
-  });
+
   
 }
 
@@ -1966,59 +2062,31 @@ function home() {
   // Show homepage sections
   document.querySelector('.homepage').style.display = 'flex';
   document.querySelector('.info-section').style.display = 'flex';
+  document.querySelector('.news-home-section').style.display = 'flex';
   
-  // Update button styles - reset all buttons first
-  const homeButtons = document.querySelectorAll('.home-btn');
-  const newsButtons = document.querySelectorAll('.news-btn');
-  const businessButtons = document.querySelectorAll('.business-btn');
-  
-  homeButtons.forEach(btn => {
-    btn.style.color = 'rgb(43, 156, 246)';
-    btn.style.borderBottom = '2px solid rgb(43, 156, 246)';
-  });
-  
-  newsButtons.forEach(btn => {
-    btn.style.color = 'rgb(0, 0, 0)';
-    btn.style.borderBottom = 'none';
-  });
-  
-  businessButtons.forEach(btn => {
-    btn.style.color = 'rgb(0, 0, 0)';
-    btn.style.borderBottom = 'none';
-  });
+    // Update button styles - reset all buttons first
+    const homeButtons = document.querySelectorAll('.home-btn');
+    const newsButtons = document.querySelectorAll('.news-btn');
+    const businessButtons = document.querySelectorAll('.business-btn');
+    
+    homeButtons.forEach(btn => {
+      btn.style.color = 'rgb(43, 156, 246)';
+      btn.style.borderBottom = '2px solid rgb(43, 156, 246)';
+    });
+    
+    newsButtons.forEach(btn => {
+      btn.style.color = 'rgb(0, 0, 0)';
+      btn.style.borderBottom = 'none';
+    });
+    
+    businessButtons.forEach(btn => {
+      btn.style.color = 'rgb(0, 0, 0)';
+      btn.style.borderBottom = 'none';
+    });
   
 }
 
-function business() {
-  // Hide all other pages
-  document.querySelector('.homepage').style.display = 'none';
-  document.querySelector('.info-section').style.display = 'none';
-  document.querySelector('.newspage').style.display = 'none';
-  
-  // Show businesspage
-  document.querySelector('.businesspage').style.display = 'flex';
-  
-  // Update button styles - reset all buttons first
-  const homeButtons = document.querySelectorAll('.home-btn');
-  const newsButtons = document.querySelectorAll('.news-btn');
-  const businessButtons = document.querySelectorAll('.business-btn');
-  
-  homeButtons.forEach(btn => {
-    btn.style.color = 'rgb(0, 0, 0)';
-    btn.style.borderBottom = 'none';
-  });
-  
-  newsButtons.forEach(btn => {
-    btn.style.color = 'rgb(0, 0, 0)';
-    btn.style.borderBottom = 'none';
-  });
-  
-  businessButtons.forEach(btn => {
-    btn.style.color = 'rgb(43, 156, 246)';
-    btn.style.borderBottom = '2px solid rgb(43, 156, 246)';
-  });
-  
-}
+
 
 
 </script>

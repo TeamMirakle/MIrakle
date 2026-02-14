@@ -32,7 +32,7 @@ body {
 }
 
 /* Desktop/Computer styles */
-@media (min-width: 1025px) {
+@media (min-width: 1401px) {
   .homepage {
     display: flex;
     flex-direction: column;
@@ -144,10 +144,10 @@ body {
     display: flex;
     flex-direction: row; /* Ensure horizontal layout */
     width: 100vw;
-    height: 80vh;
+    height: auto;
     background: #ffffff00;
     align-items: center;
-    justify-content: flex-start;
+    justify-content: center;
     overflow: hidden;
     padding-left: 0vw;
     flex-shrink: 0;
@@ -161,6 +161,7 @@ body {
 }
 
 #globe-container {
+  margin-left: 0vw;
     width: 50vw;
     height: 50vw;
     position: relative;
@@ -172,6 +173,9 @@ body {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
+    justify-content: center;
+    height: 50vw;
+    width: 37vw;
     gap: 0vw;
     align-self: flex-start;
     margin-top: 0vh;
@@ -185,7 +189,6 @@ body {
     white-space: nowrap;
     font-weight: bold;
     flex-shrink: 0; /* Prevent text from shrinking */
-    margin-top: 17vh;
 }
 
 .network-text-description {
@@ -213,10 +216,10 @@ body {
 .scrolling-section {
     display: flex;
     width: 100vw;
-    min-height: 100vh; /* Change from height: 100vh */
+    min-height: 50vw; /* Change from height: 100vh */
     background: #9e131300;
     align-items: center;
-    justify-content: flex-start;
+    justify-content: center;
     overflow: visible; /* Change from hidden */
     padding-left: 0vw;
     flex-shrink: 0;
@@ -232,14 +235,17 @@ body {
 }
 
 .scrolling-text {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 0vw;
-    align-self: flex-start;
-    margin-top: 5vh;
-    margin-left: 15vw;
-}
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+        justify-content: center;
+        gap: 0vw;
+        align-self: none;
+        height: 50vw;
+        width: 42vw;
+        margin-top: 0vh;
+        margin-left: 13vw;
+    }
 
 .scrolling-text-title {
     color: rgb(43, 156, 246);
@@ -248,7 +254,7 @@ body {
     white-space: nowrap;
     font-weight: bold;
     flex-shrink: 0; /* Prevent text from shrinking */
-    margin-top: 20vh;
+    margin-top: 0vh;
     align-self: flex-start;
 }
 
@@ -263,15 +269,17 @@ body {
 
 .scrolling-phone-zstack {
   display: grid;
-  width: 23vw;
-  height: 45vw;
+  width: 50vw;
+  height: 50vw;
   flex-shrink: 0;
   position: relative;
+  justify-content: center;
+  align-items: center;
   z-index: 1;
   order: 3;
   place-items: center;
   /* Ensure it's visible and positioned */
-  margin-left: 10vw;
+  margin-left: 0vw;
   padding: 0;
 }
 
@@ -474,35 +482,34 @@ body {
     display: flex;
     flex-direction: row;
     width: 100vw;
-    height: 55vh;
+    height: 34vw;
     background-color: #ffffff00;
     position: relative;
     overflow-x: hidden;
 }
 
 .news-post {
-    display: flex;
-    flex-direction: row;
-    width: 47vw;
-    height: 50vh;
-    background-color: #ffffff;
-    border-color: rgba(70, 70, 70, 0.3);
-    border-width: 1px; /* Changed from 200px - that's way too large! */
-    border-style: solid; /* Add this - required for border to show */
-    position: relative;
-    overflow-x: hidden;
-    align-items: stretch;
-    margin-left: 2vw;
-    margin-top: 3vh;
-    box-shadow:
-    0.05vw 0.05vw 1vw rgba(0, 0, 0, 0.25);
-  color: rgb(0, 0, 0);
-  border-radius: 1vw;
-}
+        display: flex;
+        flex-direction: row;
+        width: 47vw;
+        height: 30vw;
+        background-color: #ffffff;
+        border-color: rgba(70, 70, 70, 0.3);
+        border-width: 1px;
+        border-style: solid;
+        position: relative;
+        overflow-x: hidden;
+        align-items: stretch;
+        margin-left: 2vw;
+        margin-top: 2vw;
+        box-shadow: 0.05vw 0.05vw 1vw rgba(0, 0, 0, 0.25);
+        color: rgb(0, 0, 0);
+        border-radius: 1vw;
+    }
 
 .news-post-image {
-  width: 45vh;
-  height: 45vh;
+  width: 26vw;
+  height: 26vw;
   background-color: #ffffff00;
   border-radius: 0vw;
   border-color: rgba(76, 76, 76, 0.3);
@@ -515,8 +522,8 @@ body {
 .news-post-text {
   display: flex;
   flex-direction: column;
-  width: calc(47vw - 45vh);
-  height: 45vh;
+  width: calc(47vw - 26vw);
+  height: 26vw;
   background-color: #ffffff00;
   border-radius: 0vw;
   border-color: rgba(76, 76, 76, 0);
@@ -612,7 +619,7 @@ body {
 }
 
 /* Tablet styles */
-  @media (min-width: 768px) and (max-width: 1024px) {
+  @media (min-width: 768px) and (max-width: 1400px) {
   html {
     margin: 0;
     padding: 0;
@@ -778,9 +785,12 @@ body {
 #globe-container {
     width: 50vw;
     height: 50vw;
+    min-width: 50vw; /* Ensure minimum size */
+    min-height: 50vw; /* Ensure minimum size */
     position: relative;
     flex-shrink: 0; /* Prevent globe from shrinking */
     align-self: flex-start;
+    box-sizing: border-box; /* Include padding/border in size calculation */
 }
 
 .network-text {
@@ -789,23 +799,26 @@ body {
     align-items: flex-start;
     gap: 0vw;
     align-self: flex-start;
+    justify-content: center;
+    height: 50vw;
+    width:43vw;
     margin-top: 0vh;
     margin-left: 0vw;
 }
 
 .network-text-title {
     color: rgb(43, 156, 246);
-    font-size: 2.5vw;
+    font-size: 3vw;
     position: relative; /* Change from absolute to relative */
     white-space: nowrap;
     font-weight: bold;
     flex-shrink: 0; /* Prevent text from shrinking */
-    margin-top: 7vh;
+    margin-top: 0vh;
 }
 
 .network-text-description {
     color: rgb(0, 0, 0);
-    font-size: 1.4vw;
+    font-size: 1.7vw;
     align-self: flex-start;
     margin-top: 0vh;
     margin-left: 0vw;
@@ -850,15 +863,18 @@ body {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
+    justify-content: center;
     gap: 0vw;
+    height: 48vw;
+    width: 42vw;
     align-self: flex-start;
-    margin-top: 7vh;
+    margin-top: 0vh;
     margin-left: 15vw;
 }
 
 .scrolling-text-title {
     color: rgb(43, 156, 246);
-    font-size: 2.5vw;
+    font-size: 3vw;
     position: relative; /* Change from absolute to relative */
     white-space: nowrap;
     font-weight: bold;
@@ -869,7 +885,7 @@ body {
 
 .scrolling-text-description {
     color: rgb(0, 0, 0);
-    font-size: 1.4vw;
+    font-size: 1.7vw;
     align-self: flex-start;
     margin-top: 0vh;
     margin-left: 0vw;
@@ -886,9 +902,11 @@ body {
   order: 3;
   place-items: center;
   align-self: flex-start; /* Add this */
+  align-items: center;
+  justify-content: center;
   margin-left: 10vw;
   padding: 0;
-  margin-top: 2vw; /* Ensure no top margin */
+  margin-top: 0vw; /* Ensure no top margin */
 }
 
 
@@ -947,7 +965,7 @@ body {
 
 .mirakle-info-text {
     color: rgb(43, 156, 246);
-    font-size: 1.5vw;
+    font-size: 2vw;
     font-weight: bold;
     align-self: flex-start;
     margin-top: 1.5vh;
@@ -956,19 +974,19 @@ body {
 
 .location-info-text {
     color: rgb(0, 0, 0);
-    font-size: 1vw;
+    font-size: 1.2vw;
     font-weight: bold;
     align-self: flex-start;
-    margin-top: 1vh;
+    margin-top: 0.5vh;
     margin-left: 2vw;
 }
 
 .copyright-info-text {
     color: rgb(0, 0, 0);
-    font-size: 1vw;
+    font-size: 1.2vw;
     font-weight: bold;
     align-self: flex-start;
-    margin-top: 1vh;
+    margin-top: 0.5vh;
     margin-left: 2vw;
 }
 
@@ -976,9 +994,9 @@ body {
     display: flex;
     flex-direction: row;
     align-items: center;
-    gap: 1vw;
+    gap: 2vw;
     align-self: flex-start;
-    margin-top: 1.5vh;
+    margin-top: 0.5vh;
     margin-left: 2vw;
 }
 
@@ -1278,7 +1296,7 @@ body {
 }
 
 .mirakleimg {
-    width: 6vw;
+    width: 5vh;
 }
 
 
@@ -1354,7 +1372,7 @@ body {
 /* Network Section */
 .network-section {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     width: 100vw;
     min-height: 50vw; /* Add this - match the globe container height */
     height: auto; /* Add this */
@@ -1374,15 +1392,15 @@ body {
 }
 
 #globe-container {
-        display: flex;
-        width: 45vw;
-        height: 50vw;
-        position: relative;
-        flex-shrink: 0;
-        align-self: flex-start;
-        align-items: center;
-        justify-content: center;
-    }
+    width: 100vw;
+    height: 90vw;
+    min-width: 50vw; /* Ensure minimum size */
+    min-height: 50vw; /* Ensure minimum size */
+    position: relative;
+    flex-shrink: 0;
+    align-self: flex-start;
+    box-sizing: border-box; /* Include padding/border in size calculation */
+}
 
     .network-text {
         display: flex;
@@ -1391,35 +1409,40 @@ body {
         gap: 0vw;
         align-self: flex-start;
         margin-top: 0vh;
-        margin-left: 0vw;
+        width: 100vw;
     }
 
 .network-text-title {
         color: rgb(43, 156, 246);
-        font-size: 3vw;
+        font-size: 4.5vw;
         position: relative;
         white-space: nowrap;
         font-weight: bold;
         flex-shrink: 0;
-        margin-top: 3vh;
+        margin-top: 0vh;
+        margin-left: 2vw;
+        margin-right: 2vw;
     }
 
 .network-text-description {
     color: rgb(0, 0, 0);
-    font-size: 2vw;
+    font-size: 2.5vw;
     align-self: flex-start;
     margin-top: 0vh;
     margin-left: 0vw;
     line-height: 1.8;
+    width: 96vw;
+    margin-left: 2vw;
+    margin-right: 2vw;
 }
 
 .network-text-credit {
     color: rgb(0, 0, 0);
-    font-size: 1.5vw;
+    font-size: 2vw;
     align-self: flex-start;
     font-family: cursive;
     margin-top: 1vh;
-    margin-left: 0vw;
+    margin-left: 2vw;
 }
 
 
@@ -1436,10 +1459,11 @@ body {
     overflow: visible; /* Change from hidden */
     padding-left: 0vw;
     flex-shrink: 0;
+    flex-direction: column-reverse;
     position: relative;
     z-index: 1;
     order: 3;
-    margin-top: 0;
+    margin-top: 3vw;
     margin-left: 0;
     margin-bottom: 0; /* Add this */
     height: auto; /* Add this */
@@ -1453,13 +1477,14 @@ body {
         align-items: flex-start;
         gap: 0vw;
         align-self: flex-start;
-        margin-top: 3vh;
-        margin-left: 10vw;
+        margin-top: 2vh;
+        margin-left: 2vw;
+        width: 96vw;
     }
 
 .scrolling-text-title {
     color: rgb(43, 156, 246);
-    font-size: 3vw;
+    font-size: 4.5vw;
     position: relative; /* Change from absolute to relative */
     white-space: nowrap;
     font-weight: bold;
@@ -1470,7 +1495,7 @@ body {
 
 .scrolling-text-description {
     color: rgb(0, 0, 0);
-    font-size: 2vw;
+    font-size: 2.5vw;
     align-self: flex-start;
     margin-top: 0vh;
     margin-left: 0vw;
@@ -1479,38 +1504,35 @@ body {
 
 .scrolling-phone-zstack {
         display: grid;
-        width: 23vw;
-        height: 45vw;
+        width: 46vw;
+        height: 90vw;
         flex-shrink: 0;
         position: relative;
         z-index: 1;
         order: 3;
         place-items: center;
         align-self: flex-start;
-        margin-left: 7vw;
+        margin-left: 27vw;
         padding: 0;
         margin-top: 2vw;
     }
 
 
-.scrolling-phone-frame {
-  grid-area: 1 / 1;
-  width: 23vw;
-  height: 45vw;
-  border-radius: 4vw;
-  background-color: #000000;
-  background-image: url('video.png');
-  background-size: contain; /* Fits entire image, maintains aspect ratio */
-  background-position: center;
-  background-repeat: no-repeat;
-  box-shadow:
-    0.5vw 0.5vw 1vw rgba(0, 0, 0, 0.5),
-    inset 0 0.5vw 1vw rgba(255,255,255,0.25),
-    inset 0 -0.5vw 1vw rgba(0,0,0,0.9);
-  color: rgb(0, 0, 0);
-  font-family: Arial, sans-serif;
-  transform: perspective(1000px) rotateX(0deg);
-}
+    .scrolling-phone-frame {
+        grid-area: 1 / 1;
+        width: 46vw;
+        height: 90vw;
+        border-radius: 8vw;
+        background-color: #000000;
+        background-image: url(video.png);
+        background-size: contain;
+        background-position: center;
+        background-repeat: no-repeat;
+        box-shadow: 0.5vw 0.5vw 1vw rgba(0, 0, 0, 0.5), inset 0 0.5vw 1vw rgba(255, 255, 255, 0.25), inset 0 -0.5vw 1vw rgba(0, 0, 0, 0.9);
+        color: rgb(0, 0, 0);
+        font-family: Arial, sans-serif;
+        transform: perspective(1000px) rotateX(0deg);
+    }
 
 
 
@@ -1551,7 +1573,7 @@ body {
     font-size: 3vw;
     font-weight: bold;
     align-self: flex-start;
-    margin-top: 1.5vh;
+    margin-top: 1vh;
     margin-left: 2vw;
 }
 
@@ -1560,7 +1582,7 @@ body {
     font-size: 2vw;
     font-weight: bold;
     align-self: flex-start;
-    margin-top: 1vh;
+    margin-top: 0.5vh;
     margin-left: 2vw;
 }
 
@@ -1569,7 +1591,7 @@ body {
     font-size: 2vw;
     font-weight: bold;
     align-self: flex-start;
-    margin-top: 1vh;
+    margin-top: 0.5vh;
     margin-left: 2vw;
 }
 
@@ -1577,9 +1599,9 @@ body {
     display: flex;
     flex-direction: row;
     align-items: center;
-    gap: 1vw;
+    gap: 2vw;
     align-self: flex-start;
-    margin-top: 1.5vh;
+    margin-top: 1vh;
     margin-left: 2vw;
 }
 
@@ -1852,7 +1874,7 @@ body {
   <div id="globe-container"></div>
   <div class="network-text">
   <label class="network-text-title">Educational social network</label>
-  <label class="network-text-description">Mirakle opens the door to endless opportunities to <br>expand your educational social network. Join your <br>institution's network and connect with peers and <br>collaborators within Mirakle. In addition, Mirakle's <br>professional-based digital profile enables you to <br>connect with others based on shared interests, goals,<br> and academic pursuits. Together, these features create <br>a dynamic space  where meaningful connections turn<br> into lasting opportunities.</label>
+  <label class="network-text-description">Mirakle opens the door to endless opportunities to expand your educational social network. Join your institution's network and connect with peers and collaborators within Mirakle. In addition, Mirakle's professional-based digital profile enables you to connect with others based on shared interests, goals, and academic pursuits. Together, these features create a dynamic space  where meaningful connections turn into lasting opportunities.</label>
 <label class="network-text-credit">Globe Visualization by globe.gl — MIT License</label>
   </div>
 </div>
@@ -1861,7 +1883,7 @@ body {
 <div class="scrolling-section">
   <div class="scrolling-text">
     <label class="scrolling-text-title">Endless Possibilities</label>
-    <label class="scrolling-text-description">Mirakle focuses on nurturing each user’s curiosity<br> and passion for learning. By enabling users to post<br> and share content, we empower everyone to deepen<br> their existing interests while exploring new<br> perspectives and ideas. Users can post a problem <br>to receive diverse insights, expressed through thoughtful<br> comments and drawings, fostering meaningful discussions,<br> collaboration, critical thinking, and continuous<br> personal growth within a supportive community.
+    <label class="scrolling-text-description">Mirakle focuses on nurturing each user’s curiosity and passion for learning. By enabling users to post and share content, we empower everyone to deepen their existing interests while exploring new perspectives and ideas. Users can post a problem to receive diverse insights, expressed through thoughtful comments and drawings, fostering meaningful discussions, collaboration, critical thinking, and continuous personal growth within a supportive community.
 
     </label>
   </div>
@@ -1985,8 +2007,18 @@ window.addEventListener('DOMContentLoaded', function() {
         const { width, height } = globeContainer.getBoundingClientRect();
         globe.width(width).height(height);
     };
+    
+    // Initial resize after a short delay to ensure container has rendered
+    setTimeout(resizeGlobe, 100);
+    
+    // Resize on window resize
     window.addEventListener('resize', resizeGlobe);
-    resizeGlobe();
+    
+    // Use ResizeObserver to watch for container size changes
+    const resizeObserver = new ResizeObserver(() => {
+        resizeGlobe();
+    });
+    resizeObserver.observe(globeContainer);
 
     // Disable user controls
     const controls = globe.controls();

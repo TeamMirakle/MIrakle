@@ -1,0 +1,2025 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Mirakle</title>
+
+<link rel="icon" type="image/png" href="mirakle.png">
+
+<script src="https://cdn.jsdelivr.net/npm/globe.gl@2.32.0/dist/globe.gl.min.js"></script>
+
+<style>
+html, body {
+    overflow-y: auto !important;
+    height: auto !important;
+    min-height: 100vh !important; /* Add this */
+    -webkit-overflow-scrolling: touch;
+    touch-action: pan-y;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    height: auto;
+    min-height: 100vh;
+    overflow-x: hidden;
+    overflow-y: scroll; /* Force scrollbar */
+    -webkit-overflow-scrolling: touch;
+    touch-action: pan-y;
+    position: relative;
+}
+
+/* Desktop/Computer styles */
+@media (min-width: 1025px) {
+  .homepage {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    background-color: #ffffff;
+    position: relative;
+    overflow-x: hidden;
+    overflow-y: visible;
+    align-items: stretch;
+    /* Remove min-height: 100vh - let content determine height */
+    height: auto;
+    box-sizing: border-box;
+    flex-wrap: nowrap;
+}
+
+/* Menu Bar */
+.menu-bar {
+    display: flex;
+    align-items: center;
+    height: 8vh;
+    background-color: #ffffff;
+    flex-shrink: 0;
+    padding-left: 2vw;
+    position: relative;
+    z-index: 10;
+    order: 0; /* First in vstack */
+    width: 100%;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.mirakleimg {
+    width: 4.5vw;
+}
+
+.home-btn, .news-btn, .business-btn, .contact-btn {
+    font-size: 1.2vw;
+    background: transparent;
+    font-weight: bold;
+    border: none;
+    cursor: pointer;
+    margin-left: 3vw;
+}
+
+.home-btn {
+    color: rgb(43,156,246);
+    border-bottom: 2px solid rgb(43,156,246);
+    margin-left: 69vw;
+}
+
+/* Hero Section */
+.hero {
+    display: grid;
+    width: 100%;
+    flex-shrink: 0;
+    position: relative;
+    z-index: 1;
+    order: 1; /* Ensure proper order in vstack */
+    /* Let image determine height */
+    align-content: start;
+}
+
+.rocketbgimg {
+    grid-area: 1 / 1;
+    width: 100%;
+    height: auto; /* Let image determine height */
+    object-fit: cover;
+    display: block;
+    position: relative; /* Keep in normal flow */
+    overflow: hidden;
+}
+
+.rocketbgimg-mobile {
+    grid-area: 1 / 1;
+    width: 100%;
+    object-fit: cover;
+    display: block;
+    position: relative; /* Keep in normal flow */
+    overflow: hidden;
+}
+
+.hero-vstack {
+    grid-area: 1 / 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 3vh;
+    position: relative;
+    z-index: 2;
+}
+
+.mirakle-text {
+    color: rgb(43,156,246);
+    font-size: 7vw;
+    font-weight: bold;
+}
+
+.discover-text {
+    color: white;
+    font-size: 2vw;
+    font-weight: bold;
+    font-family: cursive;
+}
+
+.learnmore-btn {
+    font-size: 1.5vw;
+    width: 13vw;
+    height: 7vh;
+    border-radius: 1000px;
+    border: none;
+    margin-top: 2vh;
+    background-color: rgba(255, 255, 255, 0.882);
+    color: rgb(0, 0, 0);
+    border: none;
+    border-radius: 1000px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    box-shadow: 6px 6px 6px rgba(0, 0, 0, 0.3);
+}
+
+/* Network Section */
+.network-section {
+    display: flex;
+    flex-direction: row; /* Ensure horizontal layout */
+    width: 100vw;
+    height: 80vh;
+    background: #ffffff00;
+    align-items: center;
+    justify-content: flex-start;
+    overflow: hidden;
+    padding-left: 0vw;
+    flex-shrink: 0;
+    position: relative;
+    z-index: 1;
+    order: 2;
+    margin-top: 0;
+    margin-bottom: 0;
+    top: 0;
+    left: 0;
+}
+
+#globe-container {
+    width: 50vw;
+    height: 50vw;
+    position: relative;
+    flex-shrink: 0; /* Prevent globe from shrinking */
+    align-self: flex-start;
+}
+
+.network-text {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0vw;
+    align-self: flex-start;
+    margin-top: 0vh;
+    margin-left: 0vw;
+}
+
+.network-text-title {
+    color: rgb(43, 156, 246);
+    font-size: 2.5vw;
+    position: relative; /* Change from absolute to relative */
+    white-space: nowrap;
+    font-weight: bold;
+    flex-shrink: 0; /* Prevent text from shrinking */
+    margin-top: 17vh;
+}
+
+.network-text-description {
+    color: rgb(0, 0, 0);
+    font-size: 1.4vw;
+    align-self: flex-start;
+    margin-top: 0vh;
+    margin-left: 0vw;
+    line-height: 1.8;
+}
+
+.network-text-credit {
+    color: rgb(0, 0, 0);
+    font-size: 1vw;
+    align-self: flex-start;
+    font-family: cursive;
+    margin-top: 1vh;
+    margin-left: 0vw;
+}
+
+
+
+
+
+.scrolling-section {
+    display: flex;
+    width: 100vw;
+    min-height: 100vh; /* Change from height: 100vh */
+    background: #9e131300;
+    align-items: center;
+    justify-content: flex-start;
+    overflow: visible; /* Change from hidden */
+    padding-left: 0vw;
+    flex-shrink: 0;
+    position: relative;
+    z-index: 1;
+    order: 3;
+    margin-top: 0;
+    margin-left: 0;
+    margin-bottom: 0; /* Add this */
+    height: auto; /* Add this */
+    top: 0;
+    left: 0;
+}
+
+.scrolling-text {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0vw;
+    align-self: flex-start;
+    margin-top: 5vh;
+    margin-left: 15vw;
+}
+
+.scrolling-text-title {
+    color: rgb(43, 156, 246);
+    font-size: 2.5vw;
+    position: relative; /* Change from absolute to relative */
+    white-space: nowrap;
+    font-weight: bold;
+    flex-shrink: 0; /* Prevent text from shrinking */
+    margin-top: 20vh;
+    align-self: flex-start;
+}
+
+.scrolling-text-description {
+    color: rgb(0, 0, 0);
+    font-size: 1.4vw;
+    align-self: flex-start;
+    margin-top: 0vh;
+    margin-left: 0vw;
+    line-height: 1.8;
+}
+
+.scrolling-phone-zstack {
+  display: grid;
+  width: 23vw;
+  height: 45vw;
+  flex-shrink: 0;
+  position: relative;
+  z-index: 1;
+  order: 3;
+  place-items: center;
+  /* Ensure it's visible and positioned */
+  margin-left: 10vw;
+  padding: 0;
+}
+
+.scrolling-phone-vstack {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0vw;
+  grid-area: 1 / 1; /* Place in same grid cell as phone frame */
+  position: relative;
+  z-index: 2; /* Above the phone frame */
+  margin-top: 0vh;
+  margin-left: 0vw;
+  width: 23vw;
+  height: 45vw;
+  /* Remove align-self: flex-start; as it doesn't work in grid */
+}
+
+.scrolling-phone-frame {
+  grid-area: 1 / 1;
+  width: 23vw;
+  height: 45vw;
+  border-radius: 4vw;
+  background-color: #000000;
+  background-image: url('video.png');
+  background-size: contain; /* Fits entire image, maintains aspect ratio */
+  background-position: center;
+  background-repeat: no-repeat;
+  box-shadow:
+    0.5vw 0.5vw 1vw rgba(0, 0, 0, 0.5),
+    inset 0 0.5vw 1vw rgba(255,255,255,0.25),
+    inset 0 -0.5vw 1vw rgba(0,0,0,0.9);
+  color: rgb(0, 0, 0);
+  font-family: Arial, sans-serif;
+  transform: perspective(1000px) rotateX(0deg);
+}
+
+
+
+
+/* VStack for elements on top of phone */
+
+.info-section {
+    display: flex;
+    width: 100vw;
+    min-height: 25vh;
+    background: #9e131300;
+    justify-content: flex-start;
+    overflow: visible;
+    flex-shrink: 0;
+    position: relative;
+    flex-direction: column;
+    z-index: 1;
+    order: 4;
+    margin-top: 0;
+    margin-bottom: 0;
+    top: 0;
+    left: 0;
+    height: auto;
+}
+.info-divider {
+    width: 96%;
+    height: 0.5px;
+    background-color: rgba(0, 0, 0, 0.145);
+    margin-left: 2vw;
+    align-items: center;
+    justify-content: center;
+}
+
+.mirakle-info-text {
+    color: rgb(43, 156, 246);
+    font-size: 1.5vw;
+    font-weight: bold;
+    align-self: flex-start;
+    margin-top: 3vh;
+    margin-left: 2vw;
+}
+
+.location-info-text {
+    color: rgb(0, 0, 0);
+    font-size: 1vw;
+    font-weight: bold;
+    align-self: flex-start;
+    margin-top: 1vh;
+    margin-left: 2vw;
+}
+
+.copyright-info-text {
+    color: rgb(0, 0, 0);
+    font-size: 1vw;
+    font-weight: bold;
+    align-self: flex-start;
+    margin-top: 1vh;
+    margin-left: 2vw;
+}
+
+.social-buttons {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 1vw;
+    align-self: flex-start;
+    margin-top: 1.5vh;
+    margin-left: 2vw;
+}
+
+.instagram-btn {
+    color: rgb(0, 0, 0);
+    width: 2vw;
+    height: 2vw;
+    align-self: flex-start;
+}
+
+.instagram-btn:hover {
+    transform: scale(1.05);
+}
+
+.facebook-btn {
+    color: rgb(0, 0, 0);
+    width: 2vw;
+    height: 2vw;
+    align-self: flex-start;
+}
+
+.facebook-btn:hover {
+    transform: scale(1.05);
+}
+
+.tiktok-btn {
+    color: rgb(0, 0, 0);
+    width: 2vw;
+    height: 2vw;
+    align-self: flex-start;
+}
+
+.tiktok-btn:hover {
+    transform: scale(1.05);
+}
+
+.gmail-btn {
+    color: rgb(0, 0, 0);
+    width: 2vw;
+    height: 2vw;
+    align-self: flex-start;
+}
+
+.gmail-btn:hover {
+    transform: scale(1.05);
+}
+
+.newspage {
+    display: none; /* Hidden by default */
+    flex-direction: column;
+    width: 100%;
+    background-color: #ffffff;
+    position: relative;
+    overflow-x: hidden;
+    align-items: stretch; /* Ensure full width */
+}
+
+.businesspage {
+    display: none; /* Hidden by default */
+    flex-direction: column;
+    width: 100%;
+    background-color: #ffffff;
+    position: relative;
+    overflow-x: hidden;
+    align-items: stretch;
+}
+
+.contactpage {
+    display: none; /* Hidden by default */
+    flex-direction: column;
+    width: 100%;
+    background-color: #ffffff;
+    position: relative;
+    overflow-x: hidden;
+    align-items: stretch;
+}
+
+.news-latest-label {
+    color: rgb(0, 0, 0);
+    font-size: 2vw;
+    font-weight: bold;
+    align-self: flex-start;
+    margin-top: 1.5vh;
+    margin-left: 2vw;
+}
+.no-data-label {
+    color: rgb(0, 0, 0);
+    font-size: 1vw;
+    font-weight: normal;
+    align-self: flex-start;
+    margin-top: 0.5vh;
+    margin-left: 2vw;
+    margin-bottom: 20vh;
+}
+
+.news-post-row {
+    display: flex;
+    flex-direction: row;
+    width: 100vw;
+    height: 54vh;
+    background-color: #ffffff00;
+    position: relative;
+    overflow-x: hidden;
+}
+
+.news-post {
+    display: flex;
+    flex-direction: row;
+    width: 47vw;
+    height: 50vh;
+    background-color: #ffffff;
+    border-color: rgba(70, 70, 70, 0.3);
+    border-width: 1px; /* Changed from 200px - that's way too large! */
+    border-style: solid; /* Add this - required for border to show */
+    position: relative;
+    overflow-x: hidden;
+    align-items: stretch;
+    margin-left: 2vw;
+    margin-top: 3vh;
+    box-shadow:
+    0.05vw 0.05vw 1vw rgba(0, 0, 0, 0.25);
+  color: rgb(0, 0, 0);
+  border-radius: 1vw;
+}
+
+.news-post-image {
+  width: 45vh;
+  height: 45vh;
+  background-color: #ffffff00;
+  border-radius: 0vw;
+  border-color: rgba(76, 76, 76, 0.3);
+  border-width: 1px;
+  border-style: solid;
+  margin-left: 2.5vh;
+  margin-top: 2.5vh;
+}
+
+.news-post-text {
+  display: flex;
+  flex-direction: column;
+  width: calc(47vw - 45vh);
+  height: 45vh;
+  background-color: #ffffff00;
+  border-radius: 0vw;
+  border-color: rgba(76, 76, 76, 0);
+  border-width: 1px;
+  border-style: solid;
+  margin-left: 0vh;
+  margin-top: 2.5vh;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+
+.news-post-text-title {
+  color: rgb(0, 0, 0);
+  font-size: 1.5vw;
+  font-weight: bold;
+  align-self: flex-start;
+  margin-top: 0vh;
+  margin-left: 0.7vw;
+  margin-right: 0.7vw;
+}
+
+.news-post-text-date {
+  color: rgb(0, 0, 0);
+  font-size: 1vw;
+  font-weight: bold;
+  font-family: cursive;
+  align-self: flex-start;
+  margin-top: 0.1vh;
+  margin-left: 0.7vw;
+  margin-right: 0.7vw;
+}
+
+.news-post-text-content {
+  color: rgb(0, 0, 0);
+  font-size: 1vw;
+  font-weight: normal;
+  align-self: flex-start;
+  margin-top: 0.2h;
+  margin-left: 0.7vw;
+  margin-right: 0.7vw;
+  line-height: 1.4;
+}
+
+}
+
+/* Tablet styles */
+  @media (min-width: 768px) and (max-width: 1024px) {
+  html {
+    margin: 0;
+    padding: 0;
+    height: auto !important;
+    min-height: 100vh !important;
+    overflow-x: hidden !important;
+    overflow-y: auto !important;
+    -webkit-overflow-scrolling: touch;
+    touch-action: pan-y;
+  }
+
+  body {
+    margin: 0;
+    padding: 0;
+    padding-bottom: 1px; /* Add this - forces body to recognize full height */
+    height: auto !important;
+    min-height: 100vh !important;
+    overflow-x: hidden !important;
+    overflow-y: auto !important;
+    -webkit-overflow-scrolling: touch;
+    touch-action: pan-y;
+    position: relative;
+}
+
+    .homepage {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    background-color: #ffffff;
+    position: relative;
+    overflow-x: hidden;
+    overflow-y: visible; /* Change from auto back to visible */
+    align-items: stretch;
+    min-height: 100vh;
+    height: auto;
+    box-sizing: border-box;
+}
+
+  /* Add at the very end of the tablet media query */
+  .homepage::after {
+    content: '';
+    display: block;
+    height: 1px;
+    clear: both;
+  }
+
+/* Menu Bar */
+.menu-bar {
+    display: flex;
+    align-items: center;
+    height: 5vh;
+    background-color: #ffffff;
+    flex-shrink: 0;
+    padding-left: 2vw;
+    position: relative;
+    z-index: 10;
+    order: 0; /* First in vstack */
+    width: 100%;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.mirakleimg {
+    width: 6vw;
+}
+
+.home-btn, .news-btn, .business-btn, .contact-btn {
+    font-size: 1.7vw;
+    background: transparent;
+    font-weight: bold;
+    border: none;
+    cursor: pointer;
+    margin-left: 3vw;
+}
+
+.home-btn {
+    color: rgb(43,156,246);
+    border-bottom: 2px solid rgb(43,156,246);
+    margin-left: 62vw;
+}
+
+/* Hero Section */
+.hero {
+    display: grid;
+    width: 100%;
+    flex-shrink: 0;
+    position: relative;
+    z-index: 1;
+    order: 1; /* Ensure proper order in vstack */
+    /* Let image determine height */
+    align-content: start;
+}
+
+.rocketbgimg {
+    grid-area: 1 / 1;
+    width: 100%;
+    height: auto; /* Let image determine height */
+    object-fit: cover;
+    display: block;
+    position: relative; /* Keep in normal flow */
+    overflow: hidden;
+}
+
+.rocketbgimg-mobile {
+    grid-area: 1 / 1;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    position: relative; /* Keep in normal flow */
+    overflow: hidden;
+}
+
+.hero-vstack {
+    grid-area: 1 / 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 2vh;
+    position: relative;
+    z-index: 2;
+}
+
+.mirakle-text {
+    color: rgb(43,156,246);
+    font-size: 7vw;
+    font-weight: bold;
+}
+
+.discover-text {
+    color: white;
+    font-size: 2vw;
+    font-weight: bold;
+    font-family: cursive;
+}
+
+.learnmore-btn {
+    font-size: 1.5vw;
+    width: 13vw;
+    height: 4vh;
+    border-radius: 1000px;
+    border: none;
+    margin-top: 1vh;
+    background-color: rgba(255, 255, 255, 0.882);
+    color: rgb(0, 0, 0);
+    border: none;
+    border-radius: 1000px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    box-shadow: 6px 6px 6px rgba(0, 0, 0, 0.3);
+}
+
+/* Network Section */
+.network-section {
+    display: flex;
+    flex-direction: row;
+    width: 100vw;
+    min-height: 50vw; /* Add this - match the globe container height */
+    height: auto; /* Add this */
+    background: #ffffff00;
+    align-items: center;
+    justify-content: flex-start;
+    overflow: hidden;
+    padding-left: 0vw;
+    flex-shrink: 0;
+    position: relative;
+    z-index: 1;
+    order: 2;
+    margin-top: 0;
+    margin-bottom: 0;
+    top: 0;
+    left: 0;
+}
+
+#globe-container {
+    width: 50vw;
+    height: 50vw;
+    position: relative;
+    flex-shrink: 0; /* Prevent globe from shrinking */
+    align-self: flex-start;
+}
+
+.network-text {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0vw;
+    align-self: flex-start;
+    margin-top: 0vh;
+    margin-left: 0vw;
+}
+
+.network-text-title {
+    color: rgb(43, 156, 246);
+    font-size: 2.5vw;
+    position: relative; /* Change from absolute to relative */
+    white-space: nowrap;
+    font-weight: bold;
+    flex-shrink: 0; /* Prevent text from shrinking */
+    margin-top: 7vh;
+}
+
+.network-text-description {
+    color: rgb(0, 0, 0);
+    font-size: 1.4vw;
+    align-self: flex-start;
+    margin-top: 0vh;
+    margin-left: 0vw;
+    line-height: 1.8;
+}
+
+.network-text-credit {
+    color: rgb(0, 0, 0);
+    font-size: 1vw;
+    align-self: flex-start;
+    font-family: cursive;
+    margin-top: 1vh;
+    margin-left: 0vw;
+}
+
+
+
+
+
+.scrolling-section {
+    display: flex;
+    width: 100vw;
+    min-height: 48vw; /* Change from height: 100vh */
+    background: #9e131300;
+    align-items: center;
+    justify-content: flex-start;
+    overflow: visible; /* Change from hidden */
+    padding-left: 0vw;
+    flex-shrink: 0;
+    position: relative;
+    z-index: 1;
+    order: 3;
+    margin-top: 0;
+    margin-left: 0;
+    margin-bottom: 0; /* Add this */
+    height: auto; /* Add this */
+    top: 0;
+    left: 0;
+}
+
+.scrolling-text {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0vw;
+    align-self: flex-start;
+    margin-top: 7vh;
+    margin-left: 15vw;
+}
+
+.scrolling-text-title {
+    color: rgb(43, 156, 246);
+    font-size: 2.5vw;
+    position: relative; /* Change from absolute to relative */
+    white-space: nowrap;
+    font-weight: bold;
+    flex-shrink: 0; /* Prevent text from shrinking */
+    margin-top: 0vh;
+    align-self: flex-start;
+}
+
+.scrolling-text-description {
+    color: rgb(0, 0, 0);
+    font-size: 1.4vw;
+    align-self: flex-start;
+    margin-top: 0vh;
+    margin-left: 0vw;
+    line-height: 1.8;
+}
+
+.scrolling-phone-zstack {
+  display: grid;
+  width: 23vw;
+  height: 45vw;
+  flex-shrink: 0;
+  position: relative;
+  z-index: 1;
+  order: 3;
+  place-items: center;
+  align-self: flex-start; /* Add this */
+  margin-left: 10vw;
+  padding: 0;
+  margin-top: 2vw; /* Ensure no top margin */
+}
+
+
+.scrolling-phone-frame {
+  grid-area: 1 / 1;
+  width: 23vw;
+  height: 45vw;
+  border-radius: 4vw;
+  background-color: #000000;
+  background-image: url('video.png');
+  background-size: contain; /* Fits entire image, maintains aspect ratio */
+  background-position: center;
+  background-repeat: no-repeat;
+  box-shadow:
+    0.5vw 0.5vw 1vw rgba(0, 0, 0, 0.5),
+    inset 0 0.5vw 1vw rgba(255,255,255,0.25),
+    inset 0 -0.5vw 1vw rgba(0,0,0,0.9);
+  color: rgb(0, 0, 0);
+  font-family: Arial, sans-serif;
+  transform: perspective(1000px) rotateX(0deg);
+}
+
+
+
+
+/* VStack for elements on top of phone */
+
+.info-section {
+  display: flex;
+    width: 100vw;
+    min-height: 37vh;
+    background: #1c0c0c00;
+    align-items: flex-start;
+    justify-content: flex-start;
+    overflow: visible;
+    padding-left: 0vw;
+    flex-shrink: 0;
+    position: relative;
+    z-index: 1;
+    order: 4;
+    margin-top: 0;
+    margin-left: 0;
+    margin-bottom: 2vh; /* Add bottom margin */
+    padding-bottom: 2vh; /* Add bottom padding */
+    height: auto;
+    flex-direction: column;
+}
+.info-divider {
+    width: 96%;
+    height: 0.5px;
+    background-color: rgba(0, 0, 0, 0.145);
+    margin-left: 2vw;
+    align-items: center;
+    justify-content: center;
+}
+
+.mirakle-info-text {
+    color: rgb(43, 156, 246);
+    font-size: 1.5vw;
+    font-weight: bold;
+    align-self: flex-start;
+    margin-top: 1.5vh;
+    margin-left: 2vw;
+}
+
+.location-info-text {
+    color: rgb(0, 0, 0);
+    font-size: 1vw;
+    font-weight: bold;
+    align-self: flex-start;
+    margin-top: 1vh;
+    margin-left: 2vw;
+}
+
+.copyright-info-text {
+    color: rgb(0, 0, 0);
+    font-size: 1vw;
+    font-weight: bold;
+    align-self: flex-start;
+    margin-top: 1vh;
+    margin-left: 2vw;
+}
+
+.social-buttons {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 1vw;
+    align-self: flex-start;
+    margin-top: 1.5vh;
+    margin-left: 2vw;
+}
+
+.instagram-btn {
+    color: rgb(0, 0, 0);
+    width: 2vw;
+    height: 2vw;
+    align-self: flex-start;
+}
+
+.instagram-btn:hover {
+    transform: scale(1.05);
+}
+
+.facebook-btn {
+    color: rgb(0, 0, 0);
+    width: 2vw;
+    height: 2vw;
+    align-self: flex-start;
+}
+
+.facebook-btn:hover {
+    transform: scale(1.05);
+}
+
+.tiktok-btn {
+    color: rgb(0, 0, 0);
+    width: 2vw;
+    height: 2vw;
+    align-self: flex-start;
+}
+
+.tiktok-btn:hover {
+    transform: scale(1.05);
+}
+
+.gmail-btn {
+    color: rgb(0, 0, 0);
+    width: 2vw;
+    height: 2vw;
+    align-self: flex-start;
+}
+
+.gmail-btn:hover {
+    transform: scale(1.05);
+}
+
+.newspage {
+    display: none; /* Hidden by default */
+    flex-direction: column;
+    width: 100%;
+    background-color: #ffffff;
+    position: relative;
+    overflow-x: hidden;
+    align-items: stretch; /* Ensure full width */
+}
+
+.businesspage {
+    display: none; /* Hidden by default */
+    flex-direction: column;
+    width: 100%;
+    background-color: #ffffff;
+    position: relative;
+    overflow-x: hidden;
+    align-items: stretch;
+}
+
+.contactpage {
+    display: none; /* Hidden by default */
+    flex-direction: column;
+    width: 100%;
+    background-color: #ffffff;
+    position: relative;
+    overflow-x: hidden;
+    align-items: stretch;
+}
+
+.news-latest-label {
+    color: rgb(0, 0, 0);
+    font-size: 2vw;
+    font-weight: bold;
+    align-self: flex-start;
+    margin-top: 1.5vh;
+    margin-left: 2vw;
+}
+.no-data-label {
+    color: rgb(0, 0, 0);
+    font-size: 1vw;
+    font-weight: normal;
+    align-self: flex-start;
+    margin-top: 0.5vh;
+    margin-left: 2vw;
+    margin-bottom: 20vh;
+}
+
+.news-post-row {
+    display: flex;
+    flex-direction: row;
+    width: 100vw;
+    height: 21vh;
+    background-color: #ffffff00;
+    position: relative;
+    overflow-x: hidden;
+}
+
+.news-post {
+    display: flex;
+    flex-direction: row;
+    width: 47vw;
+    height: 19vh;
+    background-color: #ffffff;
+    border-color: rgba(70, 70, 70, 0.3);
+    border-width: 1px; /* Changed from 200px - that's way too large! */
+    border-style: solid; /* Add this - required for border to show */
+    position: relative;
+    overflow-x: hidden;
+    align-items: stretch;
+    margin-left: 2vw;
+    margin-top: 1.5vh;
+    box-shadow:
+    0.05vw 0.05vw 1vw rgba(0, 0, 0, 0.25);
+  color: rgb(0, 0, 0);
+  border-radius: 1vw;
+}
+
+.news-post-image {
+  width: 16vh;
+  height: 16vh;
+  background-color: #ffffff00;
+  border-radius: 0vw;
+  border-color: rgba(76, 76, 76, 0.3);
+  border-width: 1px;
+  border-style: solid;
+  margin-left: 1.5vh;
+  margin-top: 1.5vh;
+}
+
+.news-post-text {
+  display: flex;
+  flex-direction: column;
+  width: calc(47vw - 16vh);
+  height: 16vh;
+  background-color: #ffffff00;
+  border-radius: 0vw;
+  border-color: rgba(76, 76, 76, 0);
+  border-width: 1px;
+  border-style: solid;
+  margin-left: 0vh;
+  margin-top: 1.5vh;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+
+.news-post-text-title {
+  color: rgb(0, 0, 0);
+  font-size: 1.5vw;
+  font-weight: bold;
+  align-self: flex-start;
+  margin-top: 0vh;
+  margin-left: 0.7vw;
+  margin-right: 0.7vw;
+}
+
+.news-post-text-date {
+  color: rgb(0, 0, 0);
+  font-size: 1vw;
+  font-weight: bold;
+  font-family: cursive;
+  align-self: flex-start;
+  margin-top: 0.1vh;
+  margin-left: 0.7vw;
+  margin-right: 0.7vw;
+}
+
+.news-post-text-content {
+  color: rgb(0, 0, 0);
+  font-size: 1vw;
+  font-weight: normal;
+  align-self: flex-start;
+  margin-top: 0.2h;
+  margin-left: 0.7vw;
+  margin-right: 0.7vw;
+  line-height: 1.4;
+}
+
+}
+
+@media  (max-width: 767px) {
+  html {
+    margin: 0;
+    padding: 0;
+    height: auto !important;
+    min-height: 100vh !important;
+    overflow-x: hidden !important;
+    overflow-y: auto !important;
+    -webkit-overflow-scrolling: touch;
+    touch-action: pan-y;
+  }
+
+  body {
+    margin: 0;
+    padding: 0;
+    padding-bottom: 1px; /* Add this - forces body to recognize full height */
+    height: auto !important;
+    min-height: 100vh !important;
+    overflow-x: hidden !important;
+    overflow-y: auto !important;
+    -webkit-overflow-scrolling: touch;
+    touch-action: pan-y;
+    position: relative;
+}
+
+    .homepage {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    background-color: #ffffff;
+    position: relative;
+    overflow-x: hidden;
+    overflow-y: visible; /* Change from auto back to visible */
+    align-items: stretch;
+    min-height: auto;
+    height: auto;
+    box-sizing: border-box;
+}
+
+  /* Add at the very end of the tablet media query */
+  .homepage::after {
+    content: '';
+    display: block;
+    height: 1px;
+    clear: both;
+  }
+
+/* Menu Bar */
+.menu-bar {
+    display: flex;
+    align-items: center;
+    height: 5vh;
+    background-color: #ffffff;
+    flex-shrink: 0;
+    padding-left: 2vw;
+    position: relative;
+    z-index: 10;
+    order: 0; /* First in vstack */
+    width: 100%;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.mirakleimg {
+    width: 6vw;
+}
+
+.home-btn, .news-btn, .business-btn, .contact-btn {
+    font-size: 2.5vw;
+    background: transparent;
+    font-weight: bold;
+    border: none;
+    cursor: pointer;
+    margin-left: 3vw;
+}
+
+.home-btn {
+    color: rgb(43,156,246);
+    border-bottom: 2px solid rgb(43,156,246);
+    margin-left: 50vw;
+}
+
+.business-btn {
+    margin-right: 2vw;
+}
+
+/* Hero Section */
+.hero {
+    display: grid;
+    width: 100%;
+    flex-shrink: 0;
+    position: relative;
+    z-index: 1;
+    order: 1; /* Ensure proper order in vstack */
+    /* Let image determine height */
+    align-content: start;
+}
+
+.rocketbgimg {
+    grid-area: 1 / 1;
+    width: 100%;
+    height: auto; /* Let image determine height */
+    object-fit: cover;
+    display: block;
+    position: relative; /* Keep in normal flow */
+    overflow: hidden;
+}
+
+.rocketbgimg-mobile {
+    grid-area: 1 / 1;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    position: relative; /* Keep in normal flow */
+    overflow: hidden;
+}
+
+.hero-vstack {
+    grid-area: 1 / 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 2vh;
+    position: relative;
+    z-index: 2;
+}
+
+.mirakle-text {
+    color: rgb(43,156,246);
+    font-size: 7vw;
+    font-weight: bold;
+}
+
+.discover-text {
+    color: white;
+    font-size: 2vw;
+    font-weight: bold;
+    font-family: cursive;
+} 
+
+.learnmore-btn {
+    font-size: 1.5vw;
+    width: 15vw;
+    height: 2.5vh;
+    border-radius: 1000px;
+    border: none;
+    margin-top: 1vh;
+    background-color: rgba(255, 255, 255, 0.882);
+    color: rgb(0, 0, 0);
+    border: none;
+    border-radius: 1000px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    box-shadow: 6px 6px 6px rgba(0, 0, 0, 0.3);
+}
+
+/* Network Section */
+.network-section {
+    display: flex;
+    flex-direction: row;
+    width: 100vw;
+    min-height: 50vw; /* Add this - match the globe container height */
+    height: auto; /* Add this */
+    background: #ffffff00;
+    align-items: center;
+    justify-content: flex-start;
+    overflow: hidden;
+    padding-left: 0vw;
+    flex-shrink: 0;
+    position: relative;
+    z-index: 1;
+    order: 2;
+    margin-top: 0;
+    margin-bottom: 0;
+    top: 0;
+    left: 0;
+}
+
+#globe-container {
+        display: flex;
+        width: 45vw;
+        height: 50vw;
+        position: relative;
+        flex-shrink: 0;
+        align-self: flex-start;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .network-text {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0vw;
+        align-self: flex-start;
+        margin-top: 0vh;
+        margin-left: 0vw;
+    }
+
+.network-text-title {
+        color: rgb(43, 156, 246);
+        font-size: 3vw;
+        position: relative;
+        white-space: nowrap;
+        font-weight: bold;
+        flex-shrink: 0;
+        margin-top: 3vh;
+    }
+
+.network-text-description {
+    color: rgb(0, 0, 0);
+    font-size: 2vw;
+    align-self: flex-start;
+    margin-top: 0vh;
+    margin-left: 0vw;
+    line-height: 1.8;
+}
+
+.network-text-credit {
+    color: rgb(0, 0, 0);
+    font-size: 1.5vw;
+    align-self: flex-start;
+    font-family: cursive;
+    margin-top: 1vh;
+    margin-left: 0vw;
+}
+
+
+
+
+
+.scrolling-section {
+    display: flex;
+    width: 100vw;
+    min-height: 48vw; /* Change from height: 100vh */
+    background: #9e131300;
+    align-items: center;
+    justify-content: flex-start;
+    overflow: visible; /* Change from hidden */
+    padding-left: 0vw;
+    flex-shrink: 0;
+    position: relative;
+    z-index: 1;
+    order: 3;
+    margin-top: 0;
+    margin-left: 0;
+    margin-bottom: 0; /* Add this */
+    height: auto; /* Add this */
+    top: 0;
+    left: 0;
+}
+
+.scrolling-text {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0vw;
+        align-self: flex-start;
+        margin-top: 3vh;
+        margin-left: 10vw;
+    }
+
+.scrolling-text-title {
+    color: rgb(43, 156, 246);
+    font-size: 3vw;
+    position: relative; /* Change from absolute to relative */
+    white-space: nowrap;
+    font-weight: bold;
+    flex-shrink: 0; /* Prevent text from shrinking */
+    margin-top: 0vh;
+    align-self: flex-start;
+}
+
+.scrolling-text-description {
+    color: rgb(0, 0, 0);
+    font-size: 2vw;
+    align-self: flex-start;
+    margin-top: 0vh;
+    margin-left: 0vw;
+    line-height: 1.8;
+}
+
+.scrolling-phone-zstack {
+        display: grid;
+        width: 23vw;
+        height: 45vw;
+        flex-shrink: 0;
+        position: relative;
+        z-index: 1;
+        order: 3;
+        place-items: center;
+        align-self: flex-start;
+        margin-left: 7vw;
+        padding: 0;
+        margin-top: 2vw;
+    }
+
+
+.scrolling-phone-frame {
+  grid-area: 1 / 1;
+  width: 23vw;
+  height: 45vw;
+  border-radius: 4vw;
+  background-color: #000000;
+  background-image: url('video.png');
+  background-size: contain; /* Fits entire image, maintains aspect ratio */
+  background-position: center;
+  background-repeat: no-repeat;
+  box-shadow:
+    0.5vw 0.5vw 1vw rgba(0, 0, 0, 0.5),
+    inset 0 0.5vw 1vw rgba(255,255,255,0.25),
+    inset 0 -0.5vw 1vw rgba(0,0,0,0.9);
+  color: rgb(0, 0, 0);
+  font-family: Arial, sans-serif;
+  transform: perspective(1000px) rotateX(0deg);
+}
+
+
+
+
+/* VStack for elements on top of phone */
+
+.info-section {
+        display: flex;
+        width: 100vw;
+        min-height: 0vh;
+        background: #1c0c0c00;
+        align-items: flex-start;
+        justify-content: flex-start;
+        overflow: visible;
+        padding-left: 0vw;
+        flex-shrink: 0;
+        position: relative;
+        z-index: 1;
+        order: 4;
+        margin-top: 0;
+        margin-left: 0;
+        margin-bottom: 2vh;
+        padding-bottom: 2vh;
+        height: auto;
+        flex-direction: column;
+    }
+.info-divider {
+    width: 96%;
+    height: 0.5px;
+    background-color: rgba(0, 0, 0, 0.145);
+    margin-left: 2vw;
+    align-items: center;
+    justify-content: center;
+}
+
+.mirakle-info-text {
+    color: rgb(43, 156, 246);
+    font-size: 3vw;
+    font-weight: bold;
+    align-self: flex-start;
+    margin-top: 1.5vh;
+    margin-left: 2vw;
+}
+
+.location-info-text {
+    color: rgb(0, 0, 0);
+    font-size: 2vw;
+    font-weight: bold;
+    align-self: flex-start;
+    margin-top: 1vh;
+    margin-left: 2vw;
+}
+
+.copyright-info-text {
+    color: rgb(0, 0, 0);
+    font-size: 2vw;
+    font-weight: bold;
+    align-self: flex-start;
+    margin-top: 1vh;
+    margin-left: 2vw;
+}
+
+.social-buttons {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 1vw;
+    align-self: flex-start;
+    margin-top: 1.5vh;
+    margin-left: 2vw;
+}
+
+.instagram-btn {
+    color: rgb(0, 0, 0);
+    width: 4vw;
+    height: 4vw;
+    align-self: flex-start;
+}
+
+.instagram-btn:hover {
+    transform: scale(1.05);
+}
+
+.facebook-btn {
+    color: rgb(0, 0, 0);
+    width: 4vw;
+    height: 4vw;
+    align-self: flex-start;
+}
+
+.facebook-btn:hover {
+    transform: scale(1.05);
+}
+
+.tiktok-btn {
+    color: rgb(0, 0, 0);
+    width: 4vw;
+    height: 4vw;
+    align-self: flex-start;
+}
+
+.tiktok-btn:hover {
+    transform: scale(1.05);
+}
+
+.gmail-btn {
+    color: rgb(0, 0, 0);
+    width: 4vw;
+    height: 4vw;
+    align-self: flex-start;
+}
+
+.gmail-btn:hover {
+    transform: scale(1.05);
+}
+
+.newspage {
+    display: none; /* Hidden by default */
+    flex-direction: column;
+    width: 100%;
+    background-color: #ffffff;
+    position: relative;
+    overflow-x: hidden;
+    align-items: stretch; /* Ensure full width */
+}
+
+.businesspage {
+    display: none; /* Hidden by default */
+    flex-direction: column;
+    width: 100%;
+    background-color: #ffffff;
+    position: relative;
+    overflow-x: hidden;
+    align-items: stretch;
+}
+
+.contactpage {
+    display: none; /* Hidden by default */
+    flex-direction: column;
+    width: 100%;
+    background-color: #ffffff;
+    position: relative;
+    overflow-x: hidden;
+    align-items: stretch;
+}
+
+.news-latest-label {
+    color: rgb(0, 0, 0);
+    font-size: 4vw;
+    font-weight: bold;
+    align-self: flex-start;
+    margin-top: 1.5vh;
+    margin-left: 2vw;
+}
+.no-data-label {
+    color: rgb(0, 0, 0);
+    font-size: 2vw;
+    font-weight: normal;
+    align-self: flex-start;
+    margin-top: 0.5vh;
+    margin-left: 2vw;
+    margin-bottom: 20vh;
+}
+
+.news-post-row {
+    display: flex;
+    flex-direction: column;
+    width: 100vw;
+    height: auto;
+    background-color: #ffffff00;
+    position: relative;
+    overflow-x: hidden;
+}
+
+.news-post {
+    display: flex;
+    flex-direction: row;
+    width: 96vw;
+    height: 19vh;
+    background-color: #ffffff;
+    border-color: rgba(70, 70, 70, 0.3);
+    border-width: 1px; /* Changed from 200px - that's way too large! */
+    border-style: solid; /* Add this - required for border to show */
+    position: relative;
+    overflow-x: hidden;
+    align-items: stretch;
+    margin-left: 2vw;
+    margin-top: 1.5vh;
+    box-shadow:
+    0.05vw 0.05vw 1vw rgba(0, 0, 0, 0.25);
+  color: rgb(0, 0, 0);
+  border-radius: 1vw;
+}
+
+.news-post-image {
+  width: 16vh;
+  height: 16vh;
+  background-color: #ffffff00;
+  border-radius: 0vw;
+  border-color: rgba(76, 76, 76, 0.3);
+  border-width: 1px;
+  border-style: solid;
+  margin-left: 1.5vh;
+  margin-top: 1.5vh;
+}
+
+.news-post-text {
+  display: flex;
+  flex-direction: column;
+  width: calc(96vw - 16vh);
+  height: 16vh;
+  background-color: #ffffff00;
+  border-radius: 0vw;
+  border-color: rgba(76, 76, 76, 0);
+  border-width: 1px;
+  border-style: solid;
+  margin-left: 0vh;
+  margin-top: 1.5vh;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+
+.news-post-text-title {
+  color: rgb(0, 0, 0);
+  font-size: 3vw;
+  font-weight: bold;
+  align-self: flex-start;
+  margin-top: 0vh;
+  margin-left: 0.7vw;
+  margin-right: 0.7vw;
+}
+
+.news-post-text-date {
+  color: rgb(0, 0, 0);
+  font-size: 2vw;
+  font-weight: bold;
+  font-family: cursive;
+  align-self: flex-start;
+  margin-top: 0.1vh;
+  margin-left: 0.7vw;
+  margin-right: 0.7vw;
+}
+
+.news-post-text-content {
+  color: rgb(0, 0, 0);
+  font-size: 2vw;
+  font-weight: normal;
+  align-self: flex-start;
+  margin-top: 0.2h;
+  margin-left: 0.7vw;
+  margin-right: 0.7vw;
+  line-height: 1.4;
+}
+
+}
+
+
+
+
+
+</style>
+</head>
+
+<body>
+
+<div class="homepage">
+
+    <!-- Menu Bar -->
+    <div class="menu-bar">
+        <img class="mirakleimg" src="mirakle.png" alt="Mirakle">
+        <button class="home-btn" onclick="home()">Home</button>
+        <button class="news-btn" onclick="news()">News</button>
+        <button class="business-btn" onclick="business()">Business</button>
+    </div>
+
+    <!-- Hero Section -->
+    <div class="hero">
+      <img class="rocketbgimg" src="rocketbg.png" alt="Rocket">
+        <div class="hero-vstack">
+            <label class="mirakle-text">M I R A K L E</label>
+            <label class="discover-text">Your next mirakle starts here</label>
+            <button class="learnmore-btn">Learn More</button>
+            
+        </div>
+    </div>
+
+    <!-- Network Section -->
+<div class="network-section">
+  <div id="globe-container"></div>
+  <div class="network-text">
+  <label class="network-text-title">Educational social network</label>
+  <label class="network-text-description">Mirakle opens the door to endless opportunities to <br>expand your educational social network. Join your <br>institution's network and connect with peers and <br>collaborators within Mirakle. In addition, Mirakle's <br>professional-based digital profile enables you to <br>connect with others based on shared interests, goals,<br> and academic pursuits. Together, these features create <br>a dynamic space  where meaningful connections turn<br> into lasting opportunities.</label>
+<label class="network-text-credit">Globe Visualization by globe.gl — MIT License</label>
+  </div>
+</div>
+
+<!-- Scrolling Section -->
+<div class="scrolling-section">
+  <div class="scrolling-text">
+    <label class="scrolling-text-title">Endless Possibilities</label>
+    <label class="scrolling-text-description">Mirakle focuses on nurturing each user’s curiosity<br> and passion for learning. By enabling users to post<br> and share content, we empower everyone to deepen<br> their existing interests while exploring new<br> perspectives and ideas. Users can post a problem <br>to receive diverse insights, expressed through thoughtful<br> comments and drawings, fostering meaningful discussions,<br> collaboration, critical thinking, and continuous<br> personal growth within a supportive community.
+
+    </label>
+  </div>
+  <div class="scrolling-phone-zstack">
+    <div class="scrolling-phone-frame"></div>
+    
+
+      </label>
+    </div>
+  </div>
+</div>
+
+<!-- Info Section -->
+<div class="info-section">
+  <div class="info-divider"></div>
+  <label class="mirakle-info-text">M I R A K L E</label>
+  <label class="location-info-text">San Jose, CA</label>
+  <label class="copyright-info-text">© 2026 Mirakle. All rights reserved.</label>
+  <div class="social-buttons">
+    <a href="https://www.instagram.com/teammirakle" target="_blank" rel="noopener noreferrer">
+      <img src="instagram.svg" alt="Follow Mirakle on Instagram" class="instagram-btn">
+    </a>
+    <a href="https://www.facebook.com/mirakle" target="_blank" rel="noopener noreferrer">
+      <img src="facebook.png" alt="Facebook" class="facebook-btn">
+    </a>
+    <a href="https://www.tiktok.com/@learnmirakle" target="_blank" rel="noopener noreferrer">
+      <img src="tiktok.png" alt="Follow Mirakle on TikTok" class="tiktok-btn">
+    </a>
+    <a href="mailto:contactlearnmirakle@gmail.com" target="_blank" rel="noopener noreferrer">
+      <img src="gmail.svg" alt="Email Mirakle" class="gmail-btn">
+    </a>
+  </div>
+</div>
+
+</div>
+
+<div class="newspage">
+  <div class="menu-bar">
+    <img class="mirakleimg" src="mirakle.png" alt="Mirakle">
+    <button class="home-btn" onclick="home()">Home</button>
+    <button class="news-btn" onclick="news()">News</button>
+    <button class="business-btn" onclick="business()">Business</button>
+  </div>
+  <div class="news-latest-label">Latest News</div>
+  <div class="news-post-row">
+    <div class="news-post">
+      <img class="news-post-image" src="intropost.png" alt="News post image">
+      <div class="news-post-text">
+        <label class="news-post-text-title">Website Launch & Introduction</label>
+        <label class="news-post-text-date">February 20, 2026</label>
+        <label class="news-post-text-content">Today marks a significant milestone in our journey. After months of hard work and dedication, we are proud to announce the launch of our website. This is a testament to the power of collaboration and the passion that drives us forward. We hope you enjoy exploring our new platform and discovering the endless possibilities it offers. Thank you for your support and for being part of this journey with us.</label>
+      </div>
+    </div>
+    </div>
+    <div class="news-latest-label">Other News</div>
+    <div class="no-data-label">No data available.</div>
+    <div class="info-section">
+      <div class="info-divider"></div>
+      <label class="mirakle-info-text">M I R A K L E</label>
+      <label class="location-info-text">San Jose, CA</label>
+      <label class="copyright-info-text">© 2026 Mirakle. All rights reserved.</label>
+      <div class="social-buttons">
+        <a href="https://www.instagram.com/teammirakle" target="_blank" rel="noopener noreferrer">
+          <img src="instagram.svg" alt="Follow Mirakle on Instagram" class="instagram-btn">
+        </a>
+        <a href="https://www.facebook.com/profile.php?id=61587932912571" target="_blank" rel="noopener noreferrer">
+          <img src="facebook.png" alt="Facebook" class="facebook-btn">
+        </a>
+        <a href="https://www.tiktok.com/@learnmirakle" target="_blank" rel="noopener noreferrer">
+          <img src="tiktok.png" alt="Follow Mirakle on TikTok" class="tiktok-btn">
+        </a>
+        <a href="mailto:contactlearnmirakle@gmail.com" target="_blank" rel="noopener noreferrer">
+          <img src="gmail.svg" alt="Email Mirakle" class="gmail-btn">
+        </a>
+      </div>
+    </div>
+  </div>
+
+
+  </div>
+  </div>
+</div>
+
+<div class="businesspage">
+  <div class="menu-bar">
+    <img class="mirakleimg" src="mirakle.png" alt="Mirakle">
+    <button class="home-btn" onclick="home()">Home</button>
+    <button class="news-btn" onclick="news()">News</button>
+    <button class="business-btn" onclick="business()">Business</button>
+  </div>
+</div>
+
+
+<script>
+window.addEventListener('DOMContentLoaded', function() {
+    const globeContainer = document.getElementById('globe-container');
+
+    const globe = Globe()
+        (globeContainer)
+        .globeImageUrl('https://unpkg.com/three-globe/example/img/earth-blue-marble.jpg')
+        .backgroundColor('#ffffff00')
+        .showAtmosphere(true)
+        .atmosphereColor('#2B9CF6')
+        .atmosphereAltitude(0.15)
+        .pointOfView({ lat: 20, lng: 0, altitude: 2.5 });
+
+    // Fix globe canvas to container size
+    const resizeGlobe = () => {
+        const { width, height } = globeContainer.getBoundingClientRect();
+        globe.width(width).height(height);
+    };
+    window.addEventListener('resize', resizeGlobe);
+    resizeGlobe();
+
+    // Disable user controls
+    const controls = globe.controls();
+    controls.enableRotate = false;
+    controls.enableZoom = false;
+    controls.enablePan = false;
+    controls.autoRotate = true;
+    controls.autoRotateSpeed = 2;
+
+    // Network lines
+    const connections = [
+        // US → Asia / Oceania
+        { startLat: 40.7128, startLng: -74.0060, endLat: 35.6762, endLng: 139.6503 }, // NYC → Tokyo
+        { startLat: 40.7128, startLng: -74.0060, endLat: 1.3521, endLng: 103.8198 },   // NYC → Singapore
+        { startLat: 34.0522, startLng: -118.2437, endLat: -33.8688, endLng: 151.2093 },// LA → Sydney
+        { startLat: 41.8781, startLng: -87.6298, endLat: 35.6762, endLng: 139.6503 },  // Chicago → Tokyo
+
+        // Europe → other continents
+        { startLat: 51.5074, startLng: -0.1278, endLat: 48.8566, endLng: 2.3522 },     // London → Paris
+        { startLat: 48.8566, startLng: 2.3522, endLat: 55.7558, endLng: 37.6173 },     // Paris → Moscow
+        { startLat: 41.9028, startLng: 12.4964, endLat: -1.2921, endLng: 36.8219 },    // Rome → Nairobi
+
+        // South America → rest of world
+        { startLat: -23.5505, startLng: -46.6333, endLat: 40.7128, endLng: -74.0060 }, // São Paulo → NYC
+        { startLat: -23.5505, startLng: -46.6333, endLat: 1.3521, endLng: 103.8198 },  // São Paulo → Singapore
+        { startLat: -34.6037, startLng: -58.3816, endLat: 28.6139, endLng: 77.2090 },  // Buenos Aires → Delhi
+
+        // Asia → Oceania / America
+        { startLat: 35.6762, startLng: 139.6503, endLat: -33.8688, endLng: 151.2093 }, // Tokyo → Sydney
+        { startLat: 28.6139, startLng: 77.2090, endLat: 40.7128, endLng: -74.0060 },   // Delhi → NYC
+        { startLat: 1.3521, startLng: 103.8198, endLat: 34.0522, endLng: -118.2437 },  // Singapore → LA
+
+        // Africa → South America
+        { startLat: -1.2921, startLng: 36.8219, endLat: -23.5505, endLng: -46.6333 },  // Nairobi → São Paulo
+        { startLat: 6.5244, startLng: 3.3792, endLat: -34.6037, endLng: -58.3816 },    // Lagos → Buenos Aires
+        { startLat: -26.2041, startLng: 28.0473, endLat: -23.5505, endLng: -46.6333 }, // Johannesburg → São Paulo
+        { startLat: 30.0444, startLng: 31.2357, endLat: -34.6037, endLng: -58.3816 },  // Cairo → Buenos Aires
+    
+        // Misc long intercontinental
+        { startLat: 55.7558, startLng: 37.6173, endLat: 34.0522, endLng: -118.2437 },  // Moscow → LA
+        { startLat: 39.9042, startLng: 116.4074, endLat: -23.5505, endLng: -46.6333 }, // Beijing → São Paulo
+        { startLat: 19.4326, startLng: -99.1332, endLat: 48.8566, endLng: 2.3522 },    // Mexico City → Paris
+    ];
+
+    globe.arcsData(connections)
+        .arcColor(() => 'rgb(43,156,246)')
+        .arcStroke(1)
+        .arcAltitude(0.25);
+});
+</script>
+
+</body>
+<script>
+function news() {
+  // Hide all other pages
+  document.querySelector('.homepage').style.display = 'none';
+  document.querySelector('.info-section').style.display = 'none';
+  document.querySelector('.businesspage').style.display = 'none';
+  
+  // Show newspage
+  document.querySelector('.newspage').style.display = 'flex';
+  
+  // Update button styles - reset all buttons first
+  const homeButtons = document.querySelectorAll('.home-btn');
+  const newsButtons = document.querySelectorAll('.news-btn');
+  const businessButtons = document.querySelectorAll('.business-btn');
+  
+  homeButtons.forEach(btn => {
+    btn.style.color = 'rgb(0, 0, 0)';
+    btn.style.borderBottom = 'none';
+  });
+  
+  newsButtons.forEach(btn => {
+    btn.style.color = 'rgb(43, 156, 246)';
+    btn.style.borderBottom = '2px solid rgb(43, 156, 246)';
+  });
+  
+  businessButtons.forEach(btn => {
+    btn.style.color = 'rgb(0, 0, 0)';
+    btn.style.borderBottom = 'none';
+  });
+  
+}
+
+function home() {
+  // Hide all other pages
+  document.querySelector('.newspage').style.display = 'none';
+  document.querySelector('.businesspage').style.display = 'none';
+  
+  // Show homepage sections
+  document.querySelector('.homepage').style.display = 'flex';
+  document.querySelector('.info-section').style.display = 'flex';
+  
+  // Update button styles - reset all buttons first
+  const homeButtons = document.querySelectorAll('.home-btn');
+  const newsButtons = document.querySelectorAll('.news-btn');
+  const businessButtons = document.querySelectorAll('.business-btn');
+  
+  homeButtons.forEach(btn => {
+    btn.style.color = 'rgb(43, 156, 246)';
+    btn.style.borderBottom = '2px solid rgb(43, 156, 246)';
+  });
+  
+  newsButtons.forEach(btn => {
+    btn.style.color = 'rgb(0, 0, 0)';
+    btn.style.borderBottom = 'none';
+  });
+  
+  businessButtons.forEach(btn => {
+    btn.style.color = 'rgb(0, 0, 0)';
+    btn.style.borderBottom = 'none';
+  });
+  
+}
+
+function business() {
+  // Hide all other pages
+  document.querySelector('.homepage').style.display = 'none';
+  document.querySelector('.info-section').style.display = 'none';
+  document.querySelector('.newspage').style.display = 'none';
+  
+  // Show businesspage
+  document.querySelector('.businesspage').style.display = 'flex';
+  
+  // Update button styles - reset all buttons first
+  const homeButtons = document.querySelectorAll('.home-btn');
+  const newsButtons = document.querySelectorAll('.news-btn');
+  const businessButtons = document.querySelectorAll('.business-btn');
+  
+  homeButtons.forEach(btn => {
+    btn.style.color = 'rgb(0, 0, 0)';
+    btn.style.borderBottom = 'none';
+  });
+  
+  newsButtons.forEach(btn => {
+    btn.style.color = 'rgb(0, 0, 0)';
+    btn.style.borderBottom = 'none';
+  });
+  
+  businessButtons.forEach(btn => {
+    btn.style.color = 'rgb(43, 156, 246)';
+    btn.style.borderBottom = '2px solid rgb(43, 156, 246)';
+  });
+  
+}
+
+
+</script>
+</html>

@@ -1393,13 +1393,14 @@ body {
 
 #globe-container {
     width: 100vw;
-    height: 90vw;
+    height: 120vw;
     min-width: 50vw; /* Ensure minimum size */
     min-height: 50vw; /* Ensure minimum size */
     position: relative;
     flex-shrink: 0;
     align-self: flex-start;
     box-sizing: border-box; /* Include padding/border in size calculation */
+    margin-top: -8vw;
 }
 
     .network-text {
@@ -1408,7 +1409,7 @@ body {
         align-items: flex-start;
         gap: 0vw;
         align-self: flex-start;
-        margin-top: 0vh;
+        margin-top: -10vw;
         width: 100vw;
     }
 
@@ -1420,7 +1421,7 @@ body {
         font-weight: bold;
         flex-shrink: 0;
         margin-top: 0vh;
-        margin-left: 3vw;
+        margin-left: 5vw;
         margin-right: 2vw;
     }
 
@@ -1431,8 +1432,8 @@ body {
     margin-top: 0vh;
     margin-left: 0vw;
     line-height: 1.8;
-    width: 965vw;
-    margin-left: 3vw;
+    width: 96vw;
+    margin-left: 5vw;
     margin-right: 2vw;
 }
 
@@ -1442,7 +1443,7 @@ body {
     align-self: flex-start;
     font-family: cursive;
     margin-top: 1vh;
-    margin-left: 3vw;
+    margin-left: 5vw;
 }
 
 
@@ -1450,23 +1451,22 @@ body {
 
 
 .scrolling-section {
-    display: flex;
+  display: flex;
+    flex-direction: column-reverse;
     width: 100vw;
-    min-height: 48vw; /* Change from height: 100vh */
-    background: #9e131300;
+    min-height: 50vw; /* Add this - match the globe container height */
+    height: auto; /* Add this */
+    background: #ffffff00;
     align-items: center;
     justify-content: flex-start;
-    overflow: visible; /* Change from hidden */
+    overflow: hidden;
     padding-left: 0vw;
     flex-shrink: 0;
-    flex-direction: column-reverse;
     position: relative;
     z-index: 1;
-    order: 3;
-    margin-top: 3vw;
-    margin-left: 0;
-    margin-bottom: 0; /* Add this */
-    height: auto; /* Add this */
+    order: 2;
+    margin-top: 0;
+    margin-bottom: 0;
     top: 0;
     left: 0;
 }
@@ -1477,53 +1477,55 @@ body {
         align-items: flex-start;
         gap: 0vw;
         align-self: flex-start;
-        margin-top: 3vh;
+        margin-top: 8vw;
         margin-left: 0vw;
         width: 96vw;
     }
 
 .scrolling-text-title {
-    color: rgb(43, 156, 246);
-    font-size: 4.5vw;
-    position: relative; /* Change from absolute to relative */
-    white-space: nowrap;
-    font-weight: bold;
-    flex-shrink: 0; /* Prevent text from shrinking */
-    margin-top: 0vh;
-    margin-left: 3vw
-    align-self: flex-start;
+  color: rgb(43, 156, 246);
+        font-size: 4.5vw;
+        position: relative;
+        white-space: nowrap;
+        font-weight: bold;
+        flex-shrink: 0;
+        margin-top: 0vh;
+        margin-left: 5vw;
+        margin-right: 2vw;
 }
 
 .scrolling-text-description {
-    color: rgb(0, 0, 0);
+  color: rgb(0, 0, 0);
     font-size: 2.5vw;
     align-self: flex-start;
     margin-top: 0vh;
-    margin-left: 3vw;
-    width: 95vw;
+    margin-left: 0vw;
     line-height: 1.8;
+    width: 96vw;
+    margin-left: 5vw;
+    margin-right: 2vw;
 }
 
 .scrolling-phone-zstack {
         display: grid;
-        width: 46vw;
-        height: 90vw;
+        width: 61.3vw;
+        height: 120vw;
         flex-shrink: 0;
         position: relative;
         z-index: 1;
         order: 3;
         place-items: center;
         align-self: flex-start;
-        margin-left: 27vw;
+        margin-left: 19.3vw;
         padding: 0;
-        margin-top: 2vw;
+        margin-top: 10vw;
     }
 
 
     .scrolling-phone-frame {
         grid-area: 1 / 1;
-        width: 46vw;
-        height: 90vw;
+        width: 61.3vw;
+        height: 120vw;
         border-radius: 8vw;
         background-color: #000000;
         background-image: url(video.png);

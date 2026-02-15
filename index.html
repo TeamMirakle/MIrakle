@@ -167,6 +167,7 @@ body {
     position: relative;
     flex-shrink: 0; /* Prevent globe from shrinking */
     align-self: flex-start;
+    margin-left: -8vw;
 }
 
 .network-text {
@@ -179,7 +180,7 @@ body {
     gap: 0vw;
     align-self: flex-start;
     margin-top: 0vh;
-    margin-left: 0vw;
+    margin-left: -0vw;
 }
 
 .network-text-title {
@@ -508,32 +509,32 @@ body {
     }
 
 .news-post-image {
-  width: 26vw;
-  height: 26vw;
-  background-color: #ffffff00;
-  border-radius: 0vw;
-  border-color: rgba(76, 76, 76, 0.3);
-  border-width: 1px;
-  border-style: solid;
-  margin-left: 2.5vh;
-  margin-top: 2.5vh;
-}
+  width: 25vw;
+        height: 25vw;
+        background-color: #ffffff00;
+        border-radius: 0vw;
+        border-color: rgba(76, 76, 76, 0.3);
+        border-width: 1px;
+        border-style: solid;
+        margin-left: 2.5vw;
+        margin-top: 2.5vw;
+    }
 
 .news-post-text {
-  display: flex;
-  flex-direction: column;
-  width: calc(47vw - 26vw);
-  height: 26vw;
-  background-color: #ffffff00;
-  border-radius: 0vw;
-  border-color: rgba(76, 76, 76, 0);
-  border-width: 1px;
-  border-style: solid;
-  margin-left: 0vh;
-  margin-top: 2.5vh;
-  align-items: flex-start;
-  justify-content: flex-start;
-}
+        display: flex;
+        flex-direction: column;
+        width: calc(47vw - 25vw);
+        height: 25vw;
+        background-color: #ffffff00;
+        border-radius: 0vw;
+        border-color: rgba(76, 76, 76, 0);
+        border-width: 1px;
+        border-style: solid;
+        margin-left: 0vh;
+        margin-top: 2.5vw;
+        align-items: flex-start;
+        justify-content: flex-start;
+    }
 
 .news-post-text-title {
   color: rgb(0, 0, 0);
@@ -615,8 +616,111 @@ body {
   outline: none; /* Remove focus outline */
 }
 
+.business-home-section {
+  display: flex;
+  flex-direction: column;
+  width: 100vw;
+  height: auto;
+  background-color: #ffffff00;
+  position: relative;
+  overflow-x: hidden;
+  margin-bottom: 5vh;
+  margin-top: 2vh;
+}
+
+.business-home-label {
+  color: rgb(0, 0, 0);
+  background-color: #ffffff00;
+  align-self: flex-start;
+  margin-left: 2vw;
+  font-size: 2vw;
+  font-weight: bold;
+}
+
+.business-home-row {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  width: 100vw;
+  height: auto;
+  background-color: #ffffff00;
 
 }
+
+
+.business-post {
+        display: flex;
+        flex-direction: column;
+        width: 30vw;
+        height: 45vw;
+        background-color: #f0f0f0;
+        border-color: rgba(70, 70, 70, 0);
+        border-width: 1px;
+        border-style: solid;
+        position: relative;
+        overflow-x: hidden;
+        align-items: stretch;
+        margin-left: 2.5vw;
+        margin-top: 3vw;
+        margin-bottom: 2vw;
+        box-shadow: 0.05vw 0.05vw 1vw rgba(0, 0, 0, 0.25);
+        color: rgb(0, 0, 0);
+        border-radius: 1vw;
+    }
+
+    .business-post-image {
+  width: 25vw;
+        height: 18vw;
+        background-color: #ffffff00;
+        border-radius: 0vw;
+        border-color: rgba(76, 76, 76, 0.3);
+        border-width: 0px;
+        border-style: solid;
+        margin-left: 2.5vw;
+        margin-top: 2.5vw;
+    }
+
+    .business-post-text-title {
+  color: rgb(0, 0, 0);
+  font-size: 2vw;
+  font-weight: bold;
+  align-self: flex-start;
+  margin-top: 1vw;
+  margin-left: 2.5vw;
+  margin-right: 0vw;
+}
+
+.business-post-text-content {
+  color: rgb(0, 0, 0);
+  font-size: 1vw;
+  font-weight: normal;
+  align-self: flex-start;
+  margin-top: 1vw;
+  margin-left: 2.5vw;
+  margin-right: 0.7vw;
+  line-height: 1.4;
+}
+
+.business-home-more {
+        margin-left: 2.5vw;
+        margin-top: auto;
+        margin-bottom: 1.5vw;
+        font-size: 1vw;
+        font-weight: bold;
+        background-color: rgb(43, 156, 246);
+        border-radius: 10vw;
+        width: 14vw;
+        height: 4vw;
+        color: white;
+        text-decoration: none;
+        font-weight: bold;
+        font-size: 1.2vw;
+        transition: background-color 0.3s ease;
+        cursor: pointer;
+        border: none;
+        outline: none;
+    }
+  }
 
 /* Tablet styles */
   @media (min-width: 768px) and (max-width: 1400px) {
@@ -1231,6 +1335,149 @@ body {
   outline: none; /* Remove focus outline */
 }
 
+.business-home-section {
+  display: flex;
+  flex-direction: column;
+  width: 100vw;
+  height: auto;
+  background-color: #ffffff00;
+  position: relative;
+  overflow-x: hidden;
+  margin-bottom: 5vh;
+  margin-top: 2vh;
+}
+
+.business-home-news-label {
+  color: rgb(0, 0, 0);
+  background-color: #ffffff00;
+  align-self: flex-start;
+  margin-left: 2vw;
+  font-size: 2vw;
+  font-weight: bold;
+}
+
+.business-home-more {
+  margin-right: 2.5vw;
+  font-size: 1vw;
+  font-weight: bold;
+  background-color: rgb(43, 156, 246);
+  border-radius: 10vw;
+  padding: 1vw 1vw;
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 1.8vw;
+  transition: background-color 0.3s ease;
+  cursor: pointer;
+  border: none; /* Remove default button border */
+  outline: none; /* Remove focus outline */
+}
+
+.business-home-section {
+  display: flex;
+  flex-direction: column;
+  width: 100vw;
+  height: auto;
+  background-color: #ffffff00;
+  position: relative;
+  overflow-x: hidden;
+  margin-bottom: 5vh;
+  margin-top: 2vh;
+}
+
+.business-home-label {
+  color: rgb(0, 0, 0);
+  background-color: #ffffff00;
+  align-self: flex-start;
+  margin-left: 2vw;
+  font-size: 2vw;
+  font-weight: bold;
+}
+
+.business-home-row {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  width: 100vw;
+  height: auto;
+  background-color: #ffffff00;
+
+}
+
+
+.business-post {
+        display: flex;
+        flex-direction: column;
+        width: 30vw;
+        height: 45vw;
+        background-color: #f0f0f0;
+        border-color: rgba(70, 70, 70, 0);
+        border-width: 1px;
+        border-style: solid;
+        position: relative;
+        overflow-x: hidden;
+        align-items: stretch;
+        margin-left: 2.5vw;
+        margin-top: 3vw;
+        margin-bottom: 2vw;
+        box-shadow: 0.05vw 0.05vw 1vw rgba(0, 0, 0, 0.25);
+        color: rgb(0, 0, 0);
+        border-radius: 1vw;
+    }
+
+    .business-post-image {
+  width: 25vw;
+        height: 18vw;
+        background-color: #ffffff00;
+        border-radius: 0vw;
+        border-color: rgba(76, 76, 76, 0.3);
+        border-width: 0px;
+        border-style: solid;
+        margin-left: 2.5vw;
+        margin-top: 2.5vw;
+    }
+
+    .business-post-text-title {
+  color: rgb(0, 0, 0);
+  font-size: 2vw;
+  font-weight: bold;
+  align-self: flex-start;
+  margin-top: 1vw;
+  margin-left: 2.5vw;
+  margin-right: 0vw;
+}
+
+.business-post-text-content {
+  color: rgb(0, 0, 0);
+  font-size: 1vw;
+  font-weight: normal;
+  align-self: flex-start;
+  margin-top: 1vh;
+  margin-left: 2.5vw;
+  margin-right: 0.7vw;
+  line-height: 1.4;
+}
+
+.business-home-more {
+        margin-left: 2.5vw;
+        margin-top: auto;
+        margin-bottom: 1.5vw;
+        font-size: 1vw;
+        font-weight: bold;
+        background-color: rgb(43, 156, 246);
+        border-radius: 10vw;
+        width: 14vw;
+        height: 4vw;
+        color: white;
+        text-decoration: none;
+        font-weight: bold;
+        font-size: 1.2vw;
+        transition: background-color 0.3s ease;
+        cursor: pointer;
+        border: none;
+        outline: none;
+    }
+
 }
 
 @media  (max-width: 767px) {
@@ -1415,7 +1662,7 @@ body {
 
 .network-text-title {
         color: rgb(43, 156, 246);
-        font-size: 4.5vw;
+        font-size: 5vw;
         position: relative;
         white-space: nowrap;
         font-weight: bold;
@@ -1427,7 +1674,7 @@ body {
 
 .network-text-description {
     color: rgb(0, 0, 0);
-    font-size: 2.5vw;
+    font-size: 3vw;
     align-self: flex-start;
     margin-top: 0vh;
     margin-left: 0vw;
@@ -1439,7 +1686,7 @@ body {
 
 .network-text-credit {
     color: rgb(0, 0, 0);
-    font-size: 2vw;
+    font-size: 3vw;
     align-self: flex-start;
     font-family: cursive;
     margin-top: 1vh;
@@ -1484,7 +1731,7 @@ body {
 
 .scrolling-text-title {
   color: rgb(43, 156, 246);
-        font-size: 4.5vw;
+        font-size: 5vw;
         position: relative;
         white-space: nowrap;
         font-weight: bold;
@@ -1496,7 +1743,7 @@ body {
 
 .scrolling-text-description {
   color: rgb(0, 0, 0);
-    font-size: 2.5vw;
+    font-size: 3vw;
     align-self: flex-start;
     margin-top: 0vh;
     margin-left: 0vw;
@@ -1771,7 +2018,7 @@ body {
 
 .news-post-text-date {
   color: rgb(0, 0, 0);
-  font-size: 2vw;
+  font-size: 2.5vw;
   font-weight: bold;
   font-family: cursive;
   align-self: flex-start;
@@ -1782,7 +2029,7 @@ body {
 
 .news-post-text-content {
   color: rgb(0, 0, 0);
-  font-size: 2vw;
+  font-size: 2.5vw;
   font-weight: normal;
   align-self: flex-start;
   margin-top: 0.2h;
@@ -1802,7 +2049,7 @@ body {
   position: relative;
   overflow-x: hidden;
   margin-bottom: 5vh;
-  margin-top: 2vh;
+  margin-top: 10vw;
 }
 
 .news-home-row {
@@ -1820,27 +2067,134 @@ body {
   background-color: #ffffff00;
   align-self: flex-start;
   margin-left: 2vw;
-  font-size: 4vw;
+  margin-top: 0.5vw;
+  font-size: 5vw;
   font-weight: bold;
 }
 
 .news-home-news-more {
-  margin-left: auto;
-  margin-right: 3vw;
-  font-size: 1vw;
-  font-weight: bold;
-  background-color: rgb(43, 156, 246);
-  border-radius: 10vw;
-  padding: 1vw 1vw;
-  color: white;
-  text-decoration: none;
-  font-weight: bold;
-  font-size: 2.4vw;
-  transition: background-color 0.3s ease;
-  cursor: pointer;
-  border: none; /* Remove default button border */
-  outline: none; /* Remove focus outline */
+        margin-left: auto;
+        margin-right: 3vw;
+        font-size: 1vw;
+        font-weight: bold;
+        background-color: rgb(43, 156, 246);
+        border-radius: 10vw;
+        padding: 1.5vw 1.5vw;
+        color: white;
+        text-decoration: none;
+        font-weight: bold;
+        font-size: 3vw;
+        transition: background-color 0.3s ease;
+        cursor: pointer;
+        border: none;
+        outline: none;
+        margin-top: 0vw;
+    }
+
+    .business-home-section {
+  display: flex;
+  flex-direction: column;
+  width: 100vw;
+  height: auto;
+  background-color: #ffffff00;
+  position: relative;
+  overflow-x: hidden;
+  margin-bottom: 5vh;
+  margin-top: 2vh;
 }
+
+.business-home-label {
+  color: rgb(0, 0, 0);
+  background-color: #ffffff00;
+  align-self: flex-start;
+  margin-left: 2vw;
+  font-size: 2vw;
+  font-weight: bold;
+}
+
+.business-home-row {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100vw;
+  height: auto;
+  background-color: #ffffff00;
+
+}
+
+
+.business-post {
+        display: flex;
+        flex-direction: column;
+        width: 90vw;
+        height: 135vw;
+        background-color: #f0f0f0;
+        border-color: rgba(70, 70, 70, 0);
+        border-width: 1px;
+        border-style: solid;
+        position: relative;
+        overflow-x: hidden;
+        align-items: stretch;
+        margin-left: 0vw;
+        margin-top: 3vw;
+        margin-bottom: 2vw;
+        box-shadow: 0.05vw 0.05vw 1vw rgba(0, 0, 0, 0.25);
+        color: rgb(0, 0, 0);
+        border-radius: 1vw;
+    }
+
+    .business-post-image {
+  width: 85vw;
+        height: 61vw;
+        background-color: #ffffff00;
+        border-radius: 0vw;
+        border-color: rgba(76, 76, 76, 0.3);
+        border-width: 0px;
+        border-style: solid;
+        margin-left: 2.5vw;
+        margin-top: 2.5vw;
+    }
+
+    .business-post-text-title {
+  color: rgb(0, 0, 0);
+  font-size: 5vw;
+  font-weight: bold;
+  align-self: flex-start;
+  margin-top: 1vw;
+  margin-left: 2.5vw;
+  margin-right: 0vw;
+}
+
+.business-post-text-content {
+  color: rgb(0, 0, 0);
+  font-size: 2.5vw;
+  font-weight: normal;
+  align-self: flex-start;
+  margin-top: 1vw;
+  margin-left: 2.5vw;
+  margin-right: 0.7vw;
+  line-height: 1.4;
+}
+
+.business-home-more {
+        margin-left: 2.5vw;
+        margin-top: auto;
+        margin-bottom: 1.5vw;
+        font-size: 1vw;
+        font-weight: bold;
+        background-color: rgb(43, 156, 246);
+        border-radius: 10vw;
+        width: 14vw;
+        height: 4vw;
+        color: white;
+        text-decoration: none;
+        font-weight: bold;
+        font-size: 1.2vw;
+        transition: background-color 0.3s ease;
+        cursor: pointer;
+        border: none;
+        outline: none;
+    }
 
 
 
@@ -1910,11 +2264,36 @@ body {
     <div class="news-post-text">
       <label class="news-post-text-title">Website Launch & Introduction</label>
       <label class="news-post-text-date">February 20, 2026</label>
-      <label class="news-post-text-content">Today marks a significant milestone in our journey. After months of hard work and dedication, we are proud to announce the launch of our website. This is a testament to the power of collaboration and the passion that drives us forward. We hope you enjoy exploring our new platform and discovering the endless possibilities it offers. Thank you for your support and for being part of this journey with us.</label>
+      <label class="news-post-text-content"></label>
     </div>
   </div>
   </div>
 </div>
+
+<div class="business-home-section">
+  <div class="business-home-label">Business Hub</div>
+  <div class="business-home-row">
+    <div class="business-post">
+      <img class="business-post-image" src = advertise.png alt="Apply for Business">
+      <label class="business-post-text-title">Mirakle Ads</label>
+      <label class="business-post-text-content">Mirakle Ads is a platform that allows businesses to advertise their products and services to our users. We offer a variety of advertising options to suit your needs and budget.</label>
+      <button class="business-home-more" >Not Available Yet</button>
+    </div>
+    <div class="business-post">
+      <img class="business-post-image" src = cash.png alt="Monetize">
+      <label class = "business-post-text-title">Monetization</label>
+      <label class="business-post-text-content">Mirakle Monetization is a platform that allows businesses to monetize their products and services to our users. We offer a variety of monetization options to suit your needs and budget.</label>
+      <button class="business-home-more" >Not Available Yet</button>
+    </div>
+    <div class="business-post">
+      <img class="business-post-image" src = apply.png alt="Apply for Business">
+      <label class = "business-post-text-title">Join Mirakle</label>
+      <label class="business-post-text-content">Mirakle is a platform that allows businesses to join our community and connect with our users. We offer a variety of joining options to suit your needs and budget.</label>
+      <button class="business-home-more" >Not Available Yet</button>
+    </div>
+  </div>
+</div>
+
 <!-- Info Section -->
 <div class="info-section">
   <div class="info-divider"></div>
@@ -1935,7 +2314,6 @@ body {
       <img src="gmail.svg" alt="Email Mirakle" class="gmail-btn">
     </a>
   </div>
-</div>
 
 
 

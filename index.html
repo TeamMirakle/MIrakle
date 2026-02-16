@@ -720,6 +720,58 @@ body {
         border: none;
         outline: none;
     }
+
+    .countdown-row {
+        display: flex;
+        flex-direction: row;
+        align-items: flex-start;
+        justify-content: flex-start;
+        width: 100vw;
+        height: auto;
+        margin-left: 3vw;
+        margin-bottom: 10vw;
+        margin-top: auto;
+        background-color: #f0f0f000;
+        border-radius: 10vw;
+        padding: 0vw 0vw;
+    }
+
+    .countdown-row-section {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        width: auto;
+        height: auto;
+        background-color: #f0f0f000;
+        border-radius: 8.7vw;
+        padding: 0vw 0vw;
+        color: rgb(0, 0, 0);
+        font-size: 1vw;
+        font-weight: bold;
+        align-self: center;
+        margin-left: 2vw;
+        gap: 0.5vw;
+        justify-content: center;
+    }
+
+    .countdown-background {
+        color: rgb(0, 0, 0);
+        background-color: #d8d8d8;
+        height: 20vw;
+        width: 9.16vw;
+        border-radius: 2vw;
+        color: rgb(0, 0, 0);
+        font-size: 12vw;
+        font-weight: bold;
+        align-self: center;
+        justify-content: center;
+        align-items: center;
+        display: flex;
+        flex-direction: column;
+    }
+
+
   }
 
 /* Tablet styles */
@@ -1478,6 +1530,56 @@ body {
         outline: none;
     }
 
+    .countdown-row {
+        display: flex;
+        flex-direction: row;
+        align-items: flex-start;
+        justify-content: flex-start;
+        width: 100vw;
+        height: auto;
+        margin-left: 3vw;
+        margin-bottom: 15vw;
+        margin-top: auto;
+        background-color: #f0f0f000;
+        border-radius: 10vw;
+        padding: 0vw 0vw;
+    }
+
+    .countdown-row-section {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        width: auto;
+        height: auto;
+        background-color: #f0f0f000;
+        border-radius: 8.7vw;
+        padding: 0vw 0vw;
+        color: rgb(0, 0, 0);
+        font-size: 1vw;
+        font-weight: bold;
+        align-self: center;
+        margin-left: 2vw;
+        gap: 0.5vw;
+        justify-content: center;
+    }
+
+    .countdown-background {
+        color: rgb(0, 0, 0);
+        background-color: #d8d8d8;
+        height: 20vw;
+        width: 9.16vw;
+        border-radius: 2vw;
+        color: rgb(0, 0, 0);
+        font-size: 12vw;
+        font-weight: bold;
+        align-self: center;
+        justify-content: center;
+        align-items: center;
+        display: flex;
+        flex-direction: column;
+    }
+
 }
 
 @media  (max-width: 767px) {
@@ -2167,7 +2269,7 @@ body {
 
 .business-post-text-content {
   color: rgb(0, 0, 0);
-  font-size: 2.5vw;
+  font-size: 3vw;
   font-weight: normal;
   align-self: flex-start;
   margin-top: 1vw;
@@ -2184,16 +2286,66 @@ body {
         font-weight: bold;
         background-color: rgb(43, 156, 246);
         border-radius: 10vw;
-        width: 14vw;
-        height: 4vw;
+        width: 28vw;
+        height: 10vw;
         color: white;
         text-decoration: none;
         font-weight: bold;
-        font-size: 1.2vw;
+        font-size: 2.5vw;
         transition: background-color 0.3s ease;
         cursor: pointer;
         border: none;
         outline: none;
+    }
+
+    .countdown-row {
+        display: flex;
+        flex-direction: row;
+        align-items: flex-start;
+        justify-content: flex-start;
+        width: 100vw;
+        height: auto;
+        margin-left: 3vw;
+        margin-bottom: auto;
+        margin-top: 3vw;
+        background-color: #f0f0f000;
+        border-radius: 10vw;
+        padding: 0vw 0vw;
+    }
+
+    .countdown-row-section {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        width: auto;
+        height: auto;
+        background-color: #f0f0f000;
+        border-radius: 8.7vw;
+        padding: 0vw 0vw;
+        color: rgb(0, 0, 0);
+        font-size: 1vw;
+        font-weight: bold;
+        align-self: center;
+        margin-left: 2vw;
+        gap: 0.5vw;
+        justify-content: center;
+    }
+
+    .countdown-background {
+        color: rgb(0, 0, 0);
+        background-color: #d8d8d8;
+        height: 20vw;
+        width: 9.16vw;
+        border-radius: 2vw;
+        color: rgb(0, 0, 0);
+        font-size: 12vw;
+        font-weight: bold;
+        align-self: center;
+        justify-content: center;
+        align-items: center;
+        display: flex;
+        flex-direction: column;
     }
 
 
@@ -2223,7 +2375,25 @@ body {
         <div class="hero-vstack">
             <label class="mirakle-text">M I R A K L E</label>
             <label class="discover-text">Your next mirakle starts here</label>
-            
+            <div class="countdown-row">
+              <div class="countdown-row-section">
+                <label class="countdown-background" id="day-hundreds">0</label>
+                <label class="countdown-background" id="day-tens">0</label>
+                <label class="countdown-background" id="day-ones">0</label>
+              </div>
+              <div class="countdown-row-section">
+                <label class="countdown-background" id="hour-tens">0</label>
+                <label class="countdown-background" id="hour-ones">0</label>
+              </div>
+              <div class="countdown-row-section">
+                <label class="countdown-background" id="minute-tens">0</label>
+                <label class="countdown-background" id="minute-ones">0</label>
+              </div>
+              <div class="countdown-row-section">
+                <label class="countdown-background" id="second-tens">0</label>
+                <label class="countdown-background" id="second-ones">0</label>
+              </div>
+            </div>
         </div>
     </div>
 
@@ -2452,6 +2622,58 @@ window.addEventListener('DOMContentLoaded', function() {
 });
 </script>
 
+<script>
+// Countdown to December 19, 2026 at 5:00 PM
+function updateCountdown() {
+    const targetDate = new Date('2026-12-19T17:00:00');
+    const now = new Date();
+    
+    // Calculate total time difference in milliseconds
+    let diff = targetDate - now;
+    
+    // If the date has passed, set everything to 00
+    if (diff <= 0) {
+        document.getElementById('day-hundreds').textContent = '0';
+        document.getElementById('day-tens').textContent = '0';
+        document.getElementById('day-ones').textContent = '0';
+        document.getElementById('hour-tens').textContent = '0';
+        document.getElementById('hour-ones').textContent = '0';
+        document.getElementById('minute-tens').textContent = '0';
+        document.getElementById('minute-ones').textContent = '0';
+        document.getElementById('second-tens').textContent = '0';
+        document.getElementById('second-ones').textContent = '0';
+        return;
+    }
+    
+    // Calculate days, hours, minutes, and seconds
+    const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+    const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+    const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+    
+    // Format as three digits for days, two digits for others
+    const daysStr = days.toString().padStart(3, '0');
+    const hoursStr = hours.toString().padStart(2, '0');
+    const minutesStr = minutes.toString().padStart(2, '0');
+    const secondsStr = seconds.toString().padStart(2, '0');
+    
+    // Update the labels
+    document.getElementById('day-hundreds').textContent = daysStr[0];
+    document.getElementById('day-tens').textContent = daysStr[1];
+    document.getElementById('day-ones').textContent = daysStr[2];
+    document.getElementById('hour-tens').textContent = hoursStr[0];
+    document.getElementById('hour-ones').textContent = hoursStr[1];
+    document.getElementById('minute-tens').textContent = minutesStr[0];
+    document.getElementById('minute-ones').textContent = minutesStr[1];
+    document.getElementById('second-tens').textContent = secondsStr[0];
+    document.getElementById('second-ones').textContent = secondsStr[1];
+}
+
+// Update countdown immediately and then every second
+updateCountdown();
+setInterval(updateCountdown, 1000); // Update every second
+</script>
+
 </body>
 <script>
 function news() {
@@ -2463,9 +2685,6 @@ function news() {
   
   // Show newspage
   document.querySelector('.newspage').style.display = 'flex';
-  
-
-  
 }
 
 function home() {
